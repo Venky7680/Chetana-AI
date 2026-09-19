@@ -1,0 +1,3114 @@
+{
+ "source": {
+  "name": "Bundled demo corpus (generated tickets)",
+  "kind": "synthetic",
+  "tickets": 2039,
+  "patterns": 179,
+  "distinct_resolutions": 107,
+  "window": "2025-09-18 to 2026-09-17",
+  "caveat": "Synthetic data. The symptom-to-resolution patterns are plausible but invented, and no timing information is carried. Treat a match as a hypothesis worth checking, never as evidence that this estate has seen the problem before."
+ },
+ "entries": [
+  {
+   "symptom": "External monitor not detected",
+   "resolution": "Faulty display cable was replaced; monitor detected correctly afterward.",
+   "ci_classes": [
+    "Hardware"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 42
+  },
+  {
+   "symptom": "Software installation request",
+   "resolution": "Confirmed available license seat, installed software remotely, and verified activation with the user.",
+   "ci_classes": [
+    "Workstation"
+   ],
+   "groups": [
+    "Application Support",
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 41
+  },
+  {
+   "symptom": "External monitor not detected",
+   "resolution": "Docking station firmware was outdated; updated firmware and display detection resumed normally.",
+   "ci_classes": [
+    "Hardware"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 36
+  },
+  {
+   "symptom": "VoIP phone system outage",
+   "resolution": "PBX service had crashed following a scheduled update; restarted service and verified call routing restored.",
+   "ci_classes": [
+    "VoIP-PBX"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "1 - Critical",
+   "n": 36
+  },
+  {
+   "symptom": "Account locked out - password reset request",
+   "resolution": "Verified user identity per policy, reset password, and unlocked account. User confirmed successful login.",
+   "ci_classes": [
+    "AD-Account"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Identity & Access Management"
+   ],
+   "priority": "4 - Low",
+   "n": 35
+  },
+  {
+   "symptom": "VPN tunnel VPN-tunnel down",
+   "resolution": "IKE Phase 2 lifetime mismatch between on-prem firewall and cloud gateway caused repeated renegotiation failures; aligned settings on both ends.",
+   "ci_classes": [
+    "VPN-tunnel"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 35
+  },
+  {
+   "symptom": "Application license expired",
+   "resolution": "License renewal had not been processed before expiry due to a billing delay; renewed license and restarted license server.",
+   "ci_classes": [
+    "License-Server"
+   ],
+   "groups": [
+    "Application Support"
+   ],
+   "priority": "3 - Moderate",
+   "n": 34
+  },
+  {
+   "symptom": "SSL certificate expiring on Cert",
+   "resolution": "Certificate renewed and rotated; also added expiry monitoring alert 30 days out to prevent recurrence.",
+   "ci_classes": [
+    "Cert"
+   ],
+   "groups": [
+    "Network Operations",
+    "Security Operations"
+   ],
+   "priority": "1 - Critical",
+   "n": 34
+  },
+  {
+   "symptom": "Printer not responding",
+   "resolution": "Print spooler service on the shared print server had hung; restarted spooler service and cleared stuck jobs.",
+   "ci_classes": [
+    "Printer"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 33
+  },
+  {
+   "symptom": "S3 bucket S3-bucket access denied errors",
+   "resolution": "Bucket policy had been overwritten by an automation script, removing required cross-account access; restored correct policy from backup.",
+   "ci_classes": [
+    "S3-bucket"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Security Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 33
+  },
+  {
+   "symptom": "S3 bucket S3-bucket access denied errors",
+   "resolution": "Bucket ACL blocked public access as intended, but application was incorrectly using public URL instead of signed URL; corrected application config.",
+   "ci_classes": [
+    "S3-bucket"
+   ],
+   "groups": [
+    "Security Operations",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 33
+  },
+  {
+   "symptom": "VoIP phone system outage",
+   "resolution": "PBX server had lost connectivity to the SIP trunk provider; provider confirmed and resolved an outage on their end.",
+   "ci_classes": [
+    "VoIP-PBX"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 32
+  },
+  {
+   "symptom": "Azure Storage account AzureStorage request throttling",
+   "resolution": "A batch job was issuing an unusually high volume of small requests; refactored job to batch requests together.",
+   "ci_classes": [
+    "AzureStorage"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "3 - Moderate",
+   "n": 31
+  },
+  {
+   "symptom": "New employee onboarding setup",
+   "resolution": "Created AD account, provisioned laptop, and granted access to required systems ahead of start date; confirmed with hiring manager.",
+   "ci_classes": [
+    "Onboarding"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Identity & Access Management"
+   ],
+   "priority": "3 - Moderate",
+   "n": 30
+  },
+  {
+   "symptom": "Application license expired",
+   "resolution": "License server's activation file was corrupted after a server migration; re-applied activation file from vendor.",
+   "ci_classes": [
+    "License-Server"
+   ],
+   "groups": [
+    "Application Support"
+   ],
+   "priority": "3 - Moderate",
+   "n": 29
+  },
+  {
+   "symptom": "MFA enrollment issue on new device",
+   "resolution": "Old MFA device registration was still active and conflicting with new enrollment; removed old device and re-enrolled new one.",
+   "ci_classes": [
+    "MFA-Device"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Identity & Access Management"
+   ],
+   "priority": "3 - Moderate",
+   "n": 29
+  },
+  {
+   "symptom": "Printer not responding",
+   "resolution": "Printer's static IP conflicted with another device on the network after a DHCP change; corrected IP assignment.",
+   "ci_classes": [
+    "Printer"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 29
+  },
+  {
+   "symptom": "S3 bucket S3-bucket access denied errors",
+   "resolution": "IAM role used by the application was missing s3:GetObject permission after a recent policy cleanup; added scoped permission back.",
+   "ci_classes": [
+    "S3-bucket"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Security Operations"
+   ],
+   "priority": "2 - High",
+   "n": 29
+  },
+  {
+   "symptom": "VPN client not connecting",
+   "resolution": "VPN client software was outdated and incompatible with the latest gateway update; upgraded client to current version.",
+   "ci_classes": [
+    "VPN-Client"
+   ],
+   "groups": [
+    "Network Operations",
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 29
+  },
+  {
+   "symptom": "Azure AD sign-in failures for AzureAD-tenant",
+   "resolution": "A recently modified Conditional Access policy was requiring MFA from an unsupported legacy client; scoped policy to exclude legacy auth.",
+   "ci_classes": [
+    "AzureAD-tenant"
+   ],
+   "groups": [
+    "Identity & Access Management",
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "2 - High",
+   "n": 28
+  },
+  {
+   "symptom": "Backup job failed for Backup-job",
+   "resolution": "Source volume was locked by another process during the backup window; adjusted backup schedule to avoid overlap.",
+   "ci_classes": [
+    "Backup-job"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 28
+  },
+  {
+   "symptom": "CI/CD pipeline failure for Pipeline",
+   "resolution": "A flaky integration test was intermittently failing the build; quarantined test and opened follow-up ticket for a proper fix.",
+   "ci_classes": [
+    "Pipeline"
+   ],
+   "groups": [
+    "DevOps / CI-CD"
+   ],
+   "priority": "3 - Moderate",
+   "n": 28
+  },
+  {
+   "symptom": "Account locked out - password reset request",
+   "resolution": "Account lockout was caused by an old cached credential on a mobile device; cleared cached credentials and reset password.",
+   "ci_classes": [
+    "AD-Account"
+   ],
+   "groups": [
+    "Identity & Access Management",
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 27
+  },
+  {
+   "symptom": "File restore request from backup",
+   "resolution": "Files were also found in the recycle bin, avoiding need for a full restore; recovered directly from there.",
+   "ci_classes": [
+    "Fileserver"
+   ],
+   "groups": [
+    "Windows Server Team",
+    "Linux Server Team"
+   ],
+   "priority": "3 - Moderate",
+   "n": 27
+  },
+  {
+   "symptom": "SSL certificate expiring on Cert",
+   "resolution": "Automated renewal via ACME had silently failed due to a DNS validation record issue; corrected DNS record and renewal completed.",
+   "ci_classes": [
+    "Cert"
+   ],
+   "groups": [
+    "Security Operations",
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 27
+  },
+  {
+   "symptom": "IAM role IAM-role permission error on deployment",
+   "resolution": "New deployment introduced a call to a service the role had never needed before; added least-privilege policy statement for the new action.",
+   "ci_classes": [
+    "IAM-role"
+   ],
+   "groups": [
+    "DevOps / CI-CD",
+    "Security Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 26
+  },
+  {
+   "symptom": "Kubernetes pod crashloop on K8s-node",
+   "resolution": "Liveness probe was misconfigured with too short a timeout for the app's startup time; adjusted probe settings.",
+   "ci_classes": [
+    "K8s-node"
+   ],
+   "groups": [
+    "DevOps / CI-CD",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 26
+  },
+  {
+   "symptom": "Laptop running slow",
+   "resolution": "A background antivirus full scan was consuming most CPU; rescheduled scans to outside working hours.",
+   "ci_classes": [
+    "Laptop-Asset"
+   ],
+   "groups": [
+    "Application Support",
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 26
+  },
+  {
+   "symptom": "Wi-Fi connectivity issues",
+   "resolution": "AP had overheated in an enclosed cabinet; relocated device and added ventilation.",
+   "ci_classes": [
+    "WiFi-AP"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 26
+  },
+  {
+   "symptom": "Azure VM AzureVM OS disk near capacity",
+   "resolution": "Resized OS disk to next tier and extended the volume within the OS to provide additional headroom.",
+   "ci_classes": [
+    "AzureVM"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "3 - Moderate",
+   "n": 25
+  },
+  {
+   "symptom": "Huawei Cloud ECS HW-ECS network unreachable",
+   "resolution": "Security group rule was inadvertently removed during a cleanup script run; restored required inbound/outbound rules.",
+   "ci_classes": [
+    "HW-ECS"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Huawei"
+   ],
+   "priority": "2 - High",
+   "n": 25
+  },
+  {
+   "symptom": "Internal application slow to load",
+   "resolution": "Underlying database had an outdated query plan due to stale statistics; refreshed statistics and performance normalized.",
+   "ci_classes": [
+    "App-Server"
+   ],
+   "groups": [
+    "Database Administration",
+    "Application Support"
+   ],
+   "priority": "3 - Moderate",
+   "n": 25
+  },
+  {
+   "symptom": "Laptop running slow",
+   "resolution": "Disk was nearly full, causing excessive paging; cleared temp files and freed up space.",
+   "ci_classes": [
+    "Laptop-Asset"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Application Support"
+   ],
+   "priority": "3 - Moderate",
+   "n": 25
+  },
+  {
+   "symptom": "New employee onboarding setup",
+   "resolution": "Completed onboarding checklist; delayed by pending approval for one system access request, resolved after manager sign-off.",
+   "ci_classes": [
+    "Onboarding"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Identity & Access Management"
+   ],
+   "priority": "3 - Moderate",
+   "n": 25
+  },
+  {
+   "symptom": "Unable to access email account",
+   "resolution": "Password had expired per policy; guided user through self-service reset and re-synced mail client.",
+   "ci_classes": [
+    "User-Mailbox"
+   ],
+   "groups": [
+    "Identity & Access Management",
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 25
+  },
+  {
+   "symptom": "VPN tunnel VPN-tunnel down",
+   "resolution": "ISP-side outage on the on-prem circuit caused the tunnel drop; connectivity restored automatically once ISP resolved the issue.",
+   "ci_classes": [
+    "VPN-tunnel"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 25
+  },
+  {
+   "symptom": "Azure AD sign-in failures for AzureAD-tenant",
+   "resolution": "Sign-in failures traced to a transient Azure AD service incident (confirmed via Microsoft Service Health); resolved on Microsoft's side.",
+   "ci_classes": [
+    "AzureAD-tenant"
+   ],
+   "groups": [
+    "Identity & Access Management",
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "3 - Moderate",
+   "n": 24
+  },
+  {
+   "symptom": "Azure VM AzureVM OS disk near capacity",
+   "resolution": "Cleared accumulated IIS/application log files older than 30 days and configured log rotation to prevent recurrence.",
+   "ci_classes": [
+    "AzureVM"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "3 - Moderate",
+   "n": 24
+  },
+  {
+   "symptom": "IAM role IAM-role permission error on deployment",
+   "resolution": "Role trust policy was updated incorrectly during a recent security hardening pass; corrected trust relationship.",
+   "ci_classes": [
+    "IAM-role"
+   ],
+   "groups": [
+    "DevOps / CI-CD",
+    "Security Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 24
+  },
+  {
+   "symptom": "IAM role IAM-role permission error on deployment",
+   "resolution": "A scheduled IAM policy audit had revoked a permission still required by a legacy component; permission restored with justification documented.",
+   "ci_classes": [
+    "IAM-role"
+   ],
+   "groups": [
+    "Security Operations",
+    "DevOps / CI-CD"
+   ],
+   "priority": "3 - Moderate",
+   "n": 24
+  },
+  {
+   "symptom": "Kubernetes pod crashloop on K8s-node",
+   "resolution": "New deployment referenced a ConfigMap key that no longer existed after a config refactor; corrected reference and redeployed.",
+   "ci_classes": [
+    "K8s-node"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "DevOps / CI-CD"
+   ],
+   "priority": "2 - High",
+   "n": 24
+  },
+  {
+   "symptom": "VPN client not connecting",
+   "resolution": "User's home router was blocking the required VPN port; provided guidance to adjust router firewall settings.",
+   "ci_classes": [
+    "VPN-Client"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Network Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 24
+  },
+  {
+   "symptom": "Azure Storage account AzureStorage request throttling",
+   "resolution": "Enabled a second storage account and sharded traffic across both to distribute request load.",
+   "ci_classes": [
+    "AzureStorage"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "3 - Moderate",
+   "n": 23
+  },
+  {
+   "symptom": "Backup job failed for Backup-job",
+   "resolution": "Backup agent lost connectivity mid-job due to a transient network blip; job re-ran successfully on retry.",
+   "ci_classes": [
+    "Backup-job"
+   ],
+   "groups": [
+    "Linux Server Team",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 23
+  },
+  {
+   "symptom": "File restore request from backup",
+   "resolution": "Located files in the previous night's backup snapshot and restored them to the original location; user confirmed files intact.",
+   "ci_classes": [
+    "Fileserver"
+   ],
+   "groups": [
+    "Linux Server Team",
+    "Windows Server Team"
+   ],
+   "priority": "4 - Low",
+   "n": 23
+  },
+  {
+   "symptom": "Wi-Fi connectivity issues",
+   "resolution": "Access point had a firmware bug causing periodic drops under high client count; applied vendor firmware update.",
+   "ci_classes": [
+    "WiFi-AP"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 23
+  },
+  {
+   "symptom": "Huawei Cloud ECS HW-ECS network unreachable",
+   "resolution": "Underlying network interface required a manual reset on the Huawei Cloud console; connectivity restored after reset.",
+   "ci_classes": [
+    "HW-ECS"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Huawei"
+   ],
+   "priority": "2 - High",
+   "n": 22
+  },
+  {
+   "symptom": "Laptop running slow",
+   "resolution": "A misbehaving browser extension was consuming excessive memory; removed extension and cleared cache.",
+   "ci_classes": [
+    "Laptop-Asset"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Application Support"
+   ],
+   "priority": "3 - Moderate",
+   "n": 22
+  },
+  {
+   "symptom": "Shared drive access issue",
+   "resolution": "File server had run out of available connections under peak load; increased connection limit and restarted service.",
+   "ci_classes": [
+    "FileShare"
+   ],
+   "groups": [
+    "Windows Server Team",
+    "Linux Server Team"
+   ],
+   "priority": "3 - Moderate",
+   "n": 22
+  },
+  {
+   "symptom": "Shared drive access issue",
+   "resolution": "Folder-level NTFS permissions had been overwritten by an inheritance change; restored explicit permissions.",
+   "ci_classes": [
+    "FileShare"
+   ],
+   "groups": [
+    "Windows Server Team",
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 22
+  },
+  {
+   "symptom": "Unable to access email account",
+   "resolution": "Account had been locked out after multiple failed sign-in attempts from a stale mobile device; unlocked account and removed old device.",
+   "ci_classes": [
+    "User-Mailbox"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Identity & Access Management"
+   ],
+   "priority": "3 - Moderate",
+   "n": 22
+  },
+  {
+   "symptom": "Azure VM AzureVM OS disk near capacity",
+   "resolution": "Windows Update cache had grown unusually large; ran disk cleanup and cleared component store using DISM.",
+   "ci_classes": [
+    "AzureVM"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "2 - High",
+   "n": 21
+  },
+  {
+   "symptom": "Internal application slow to load",
+   "resolution": "A recent code deployment introduced an inefficient query in a frequently used page; reverted and scheduled a proper fix.",
+   "ci_classes": [
+    "App-Server"
+   ],
+   "groups": [
+    "Application Support",
+    "Database Administration"
+   ],
+   "priority": "3 - Moderate",
+   "n": 21
+  },
+  {
+   "symptom": "Internal application slow to load",
+   "resolution": "Application server's thread pool was exhausted under load; increased pool size and restarted application service.",
+   "ci_classes": [
+    "App-Server"
+   ],
+   "groups": [
+    "Application Support",
+    "Database Administration"
+   ],
+   "priority": "2 - High",
+   "n": 21
+  },
+  {
+   "symptom": "Load balancer AzureLB returning 5xx errors",
+   "resolution": "One backend instance was silently failing under load; deregistered instance and replaced via auto scaling group.",
+   "ci_classes": [
+    "AzureLB"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 21
+  },
+  {
+   "symptom": "Shared drive access issue",
+   "resolution": "Team's security group membership had been removed during a recent AD cleanup; re-added group and access restored.",
+   "ci_classes": [
+    "FileShare"
+   ],
+   "groups": [
+    "Linux Server Team",
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 21
+  },
+  {
+   "symptom": "Software installation request",
+   "resolution": "No license seat was available; procured an additional license and completed installation once approved.",
+   "ci_classes": [
+    "Workstation"
+   ],
+   "groups": [
+    "Service Desk L1",
+    "Application Support"
+   ],
+   "priority": "4 - Low",
+   "n": 21
+  },
+  {
+   "symptom": "Wi-Fi connectivity issues",
+   "resolution": "Channel overlap between adjacent access points was causing interference; reconfigured channel plan.",
+   "ci_classes": [
+    "WiFi-AP"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 21
+  },
+  {
+   "symptom": "CI/CD pipeline failure for Pipeline",
+   "resolution": "Build agent ran out of disk space from accumulated Docker layers; cleared cache and added scheduled cleanup job.",
+   "ci_classes": [
+    "Pipeline"
+   ],
+   "groups": [
+    "DevOps / CI-CD"
+   ],
+   "priority": "3 - Moderate",
+   "n": 20
+  },
+  {
+   "symptom": "MFA enrollment issue on new device",
+   "resolution": "User's device clock was out of sync, causing TOTP codes to fail; corrected device time settings and enrollment succeeded.",
+   "ci_classes": [
+    "MFA-Device"
+   ],
+   "groups": [
+    "Identity & Access Management",
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 20
+  },
+  {
+   "symptom": "VPN client not connecting",
+   "resolution": "User's MFA token had desynced; re-registered device for MFA and connection succeeded.",
+   "ci_classes": [
+    "VPN-Client"
+   ],
+   "groups": [
+    "Network Operations",
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 20
+  },
+  {
+   "symptom": "Backup job failed for Backup-job",
+   "resolution": "Backup destination storage had reached its quota; freed space by expiring old backup generations and re-ran job successfully.",
+   "ci_classes": [
+    "Backup-job"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 19
+  },
+  {
+   "symptom": "VPN tunnel VPN-tunnel down",
+   "resolution": "On-prem firewall rebooted for a scheduled patch without prior notice; tunnel re-established manually after reboot completed.",
+   "ci_classes": [
+    "VPN-tunnel"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 19
+  },
+  {
+   "symptom": "CI/CD pipeline failure for Pipeline",
+   "resolution": "Pipeline was failing due to an expired deployment credential stored in the CI secrets manager; rotated credential and re-ran pipeline.",
+   "ci_classes": [
+    "Pipeline"
+   ],
+   "groups": [
+    "DevOps / CI-CD"
+   ],
+   "priority": "2 - High",
+   "n": 18
+  },
+  {
+   "symptom": "Printer not responding",
+   "resolution": "Printer had run out of toner and paused the queue silently; replaced toner cartridge and resumed queue.",
+   "ci_classes": [
+    "Printer"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 18
+  },
+  {
+   "symptom": "Azure Storage account AzureStorage request throttling",
+   "resolution": "Storage account was on Standard tier and hitting default request-rate limits; upgraded to Premium tier for the affected workload.",
+   "ci_classes": [
+    "AzureStorage"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "3 - Moderate",
+   "n": 17
+  },
+  {
+   "symptom": "Huawei Cloud ECS HW-ECS network unreachable",
+   "resolution": "VPC peering connection had entered a stale state after a route table update; re-established peering and verified connectivity.",
+   "ci_classes": [
+    "HW-ECS"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Huawei"
+   ],
+   "priority": "2 - High",
+   "n": 17
+  },
+  {
+   "symptom": "RDS instance RDS-db high CPU / slow queries",
+   "resolution": "Identified a missing index on a frequently-queried table; added index and query plan improved significantly.",
+   "ci_classes": [
+    "RDS-db"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Database Administration"
+   ],
+   "priority": "2 - High",
+   "n": 17
+  },
+  {
+   "symptom": "SSL certificate expiring on Cert",
+   "resolution": "Renewed certificate through the internal CA and deployed to all affected endpoints ahead of expiry.",
+   "ci_classes": [
+    "Cert"
+   ],
+   "groups": [
+    "Security Operations",
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 17
+  },
+  {
+   "symptom": "Unable to access email account",
+   "resolution": "Mailbox had exceeded its storage quota, silently blocking new sign-ins; archived old mail and restored access.",
+   "ci_classes": [
+    "User-Mailbox"
+   ],
+   "groups": [
+    "Identity & Access Management",
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 17
+  },
+  {
+   "symptom": "Azure AD sign-in failures for AzureAD-tenant",
+   "resolution": "Users were affected by an expired federation certificate between Azure AD and on-prem ADFS; certificate renewed and trust re-established.",
+   "ci_classes": [
+    "AzureAD-tenant"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure",
+    "Identity & Access Management"
+   ],
+   "priority": "3 - Moderate",
+   "n": 16
+  },
+  {
+   "symptom": "Kubernetes pod crashloop on K8s-node",
+   "resolution": "Container was exceeding its memory limit under real traffic; increased resource limits and added horizontal pod autoscaling.",
+   "ci_classes": [
+    "K8s-node"
+   ],
+   "groups": [
+    "DevOps / CI-CD",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 16
+  },
+  {
+   "symptom": "Load balancer ALB returning 5xx errors",
+   "resolution": "Idle timeout mismatch between load balancer and backend web server caused connection resets; aligned timeout values.",
+   "ci_classes": [
+    "ALB"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Network Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 15
+  },
+  {
+   "symptom": "Load balancer AzureLB returning 5xx errors",
+   "resolution": "Backend target group health check interval was too aggressive, marking healthy instances unhealthy under brief latency spikes; tuned thresholds.",
+   "ci_classes": [
+    "AzureLB"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 15
+  },
+  {
+   "symptom": "Load balancer ALB returning 5xx errors",
+   "resolution": "Backend target group health check interval was too aggressive, marking healthy instances unhealthy under brief latency spikes; tuned thresholds.",
+   "ci_classes": [
+    "ALB"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Network Operations"
+   ],
+   "priority": "3 - Moderate",
+   "n": 14
+  },
+  {
+   "symptom": "RDS instance RDS-prod high CPU / slow queries",
+   "resolution": "Identified a missing index on a frequently-queried table; added index and query plan improved significantly.",
+   "ci_classes": [
+    "RDS-prod"
+   ],
+   "groups": [
+    "Database Administration",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 12
+  },
+  {
+   "symptom": "Load balancer ALB returning 5xx errors",
+   "resolution": "One backend instance was silently failing under load; deregistered instance and replaced via auto scaling group.",
+   "ci_classes": [
+    "ALB"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 11
+  },
+  {
+   "symptom": "RDS instance RDS-prod high CPU / slow queries",
+   "resolution": "Scaled instance class up one tier to handle sustained load; monitoring for recurrence over next billing cycle.",
+   "ci_classes": [
+    "RDS-prod"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Database Administration"
+   ],
+   "priority": "2 - High",
+   "n": 10
+  },
+  {
+   "symptom": "RDS instance RDS-prod high CPU / slow queries",
+   "resolution": "A long-running batch job was locking rows during business hours; rescheduled job to off-peak window.",
+   "ci_classes": [
+    "RDS-prod"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Database Administration"
+   ],
+   "priority": "3 - Moderate",
+   "n": 10
+  },
+  {
+   "symptom": "Load balancer AzureLB returning 5xx errors",
+   "resolution": "Idle timeout mismatch between load balancer and backend web server caused connection resets; aligned timeout values.",
+   "ci_classes": [
+    "AzureLB"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS",
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 7
+  },
+  {
+   "symptom": "RDS instance RDS-db high CPU / slow queries",
+   "resolution": "Killed a runaway query from a misconfigured reporting tool connection pool; added query timeout limits.",
+   "ci_classes": [
+    "RDS-db"
+   ],
+   "groups": [
+    "Database Administration",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 7
+  },
+  {
+   "symptom": "RDS instance RDS-db high CPU / slow queries",
+   "resolution": "Scaled instance class up one tier to handle sustained load; monitoring for recurrence over next billing cycle.",
+   "ci_classes": [
+    "RDS-db"
+   ],
+   "groups": [
+    "Database Administration",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 6
+  },
+  {
+   "symptom": "RDS instance RDS-prod high CPU / slow queries",
+   "resolution": "Killed a runaway query from a misconfigured reporting tool connection pool; added query timeout limits.",
+   "ci_classes": [
+    "RDS-prod"
+   ],
+   "groups": [
+    "Database Administration",
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 6
+  },
+  {
+   "symptom": "Azure AD sign-in failures for AzureAD-tenant",
+   "resolution": "Confirmed part of the same East US Azure regional incident; sign-ins recovered once Microsoft resolved the underlying issue.",
+   "ci_classes": [
+    "AzureAD-tenant"
+   ],
+   "groups": [
+    "Identity & Access Management"
+   ],
+   "priority": "2 - High",
+   "n": 2
+  },
+  {
+   "symptom": "Azure Storage account AzureStorage request throttling",
+   "resolution": "Same East US regional Azure incident as related VM and Azure AD tickets; resolved on Microsoft's side.",
+   "ci_classes": [
+    "AzureStorage"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "2 - High",
+   "n": 2
+  },
+  {
+   "symptom": "Azure VM AzureVM OS disk / connectivity issues",
+   "resolution": "Root cause was an East US regional Azure incident affecting compute and storage; resolved per Microsoft Service Health update.",
+   "ci_classes": [
+    "AzureVM"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Azure"
+   ],
+   "priority": "1 - Critical",
+   "n": 2
+  },
+  {
+   "symptom": "Backup job failed for Backup-job",
+   "resolution": "Backup failure attributed to the same us-east-1 network event impacting the source instance; job re-ran successfully once region stabilized.",
+   "ci_classes": [
+    "Backup-job"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 2
+  },
+  {
+   "symptom": "CI/CD pipeline failure for Pipeline",
+   "resolution": "Traced to the same expired internal CA certificate (Cert); pipeline resumed after cert chain was reissued.",
+   "ci_classes": [
+    "Pipeline"
+   ],
+   "groups": [
+    "DevOps / CI-CD"
+   ],
+   "priority": "2 - High",
+   "n": 2
+  },
+  {
+   "symptom": "Internal application slow / failing on App-Server",
+   "resolution": "Same root cause as the Cert expiry ticket; resolved once the certificate chain was reissued and redeployed.",
+   "ci_classes": [
+    "App-Server"
+   ],
+   "groups": [
+    "Application Support"
+   ],
+   "priority": "1 - Critical",
+   "n": 2
+  },
+  {
+   "symptom": "Load balancer ALB returning 5xx errors",
+   "resolution": "Part of the same us-east-1 regional network event; errors stopped once AWS network degradation was mitigated.",
+   "ci_classes": [
+    "ALB"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "1 - Critical",
+   "n": 2
+  },
+  {
+   "symptom": "RDS instance RDS-prod high CPU / slow queries",
+   "resolution": "Confirmed related to the same us-east-1 network degradation event; latency normalized once AWS resolved the underlying issue.",
+   "ci_classes": [
+    "RDS-prod"
+   ],
+   "groups": [
+    "Database Administration"
+   ],
+   "priority": "1 - Critical",
+   "n": 2
+  },
+  {
+   "symptom": "SSL certificate expiring on Cert",
+   "resolution": "Internal root CA had an unnoticed expiry; reissued intermediate cert chain and redeployed to all dependent services.",
+   "ci_classes": [
+    "Cert"
+   ],
+   "groups": [
+    "Security Operations"
+   ],
+   "priority": "1 - Critical",
+   "n": 2
+  },
+  {
+   "symptom": "VPN client not connecting (multiple remote users)",
+   "resolution": "Downstream effect of the VPN-tunnel ISP outage; resolved automatically once the tunnel was restored.",
+   "ci_classes": [
+    "VPN-Client"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "2 - High",
+   "n": 2
+  },
+  {
+   "symptom": "VPN tunnel VPN-tunnel down",
+   "resolution": "ISP confirmed a fiber cut affecting the primary circuit; tunnel restored once ISP rerouted traffic.",
+   "ci_classes": [
+    "VPN-tunnel"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "1 - Critical",
+   "n": 2
+  },
+  {
+   "symptom": "VoIP phone system outage (VoIP-PBX)",
+   "resolution": "Same ISP fiber cut as the related VPN tunnel outage; phone service restored once ISP rerouted traffic.",
+   "ci_classes": [
+    "VoIP-PBX"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "1 - Critical",
+   "n": 2
+  },
+  {
+   "symptom": "Backup job failed for Backup-job",
+   "resolution": "Same Huawei Cloud regional network advisory affecting HW-ECS; backup re-ran successfully after region stabilized.",
+   "ci_classes": [
+    "Backup-job"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Huawei"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "CI/CD pipeline failure for Pipeline",
+   "resolution": "Same faulty release as the related K8s-node crashloop ticket; rolled back and pipeline re-run clean.",
+   "ci_classes": [
+    "Pipeline"
+   ],
+   "groups": [
+    "DevOps / CI-CD"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "CI/CD pipeline failure for Pipeline",
+   "resolution": "Same root cause as the IAM-role and S3-bucket tickets; resolved once IAM policy change was reverted.",
+   "ci_classes": [
+    "Pipeline"
+   ],
+   "groups": [
+    "DevOps / CI-CD"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01055c unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-01055c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01304c unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-01304c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01411a unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-01411a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01641a unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-01641a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "4 - Low",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01733b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-01733b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01740a unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-01740a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-0180b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-0180b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01829b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-01829b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01842c unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-01842c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01862c unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-01862c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-01927a unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-01927a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-02709b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-02709b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-02877a unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-02877a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-02881b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-02881b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03061a unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-03061a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03147c unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-03147c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03183b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-03183b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03257c unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-03257c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03538a unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-03538a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03728a unresponsive",
+   "resolution": "Traced to an AWS us-east-1 network degradation event affecting multiple availability zones; resolved once AWS mitigated on their end.",
+   "ci_classes": [
+    "EC2-i-03728a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03753a unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-03753a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03864b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-03864b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03918a unresponsive",
+   "resolution": "Traced to an AWS us-east-1 network degradation event affecting multiple availability zones; resolved once AWS mitigated on their end.",
+   "ci_classes": [
+    "EC2-i-03918a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-03931a unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-03931a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04057c unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-04057c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04069b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-04069b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04157b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-04157b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04194c unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-04194c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-0431c unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-0431c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04367a unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-04367a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04435b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-04435b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04547a unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-04547a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04696b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-04696b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-0492a unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-0492a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-04938b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-04938b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05022b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-05022b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "4 - Low",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05040b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-05040b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-0517b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-0517b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05301b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-05301b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05404c unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-05404c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05417b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-05417b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05597a unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-05597a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05798b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-05798b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-05859b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-05859b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-06030b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-06030b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-06047c unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-06047c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-06060c unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-06060c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-06081c unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-06081c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-06488c unresponsive",
+   "resolution": "Instance failed underlying hardware health check; stopped and started to migrate to new host, service restored.",
+   "ci_classes": [
+    "EC2-i-06488c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-06560a unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-06560a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-06705a unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-06705a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-07108b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-07108b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-07148b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-07148b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-07498b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-07498b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-07530b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-07530b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-07856b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-07856b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-08083a unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-08083a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "4 - Low",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-08274a unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-08274a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-08454c unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-08454c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-08463b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-08463b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-0851c unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-0851c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-08737b unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-08737b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-08753b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-08753b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-08946b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-08946b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-09159a unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-09159a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-09204c unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-09204c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-09320a unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-09320a"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-09447b unresponsive",
+   "resolution": "Instance was unreachable due to a misconfigured security group rule blocking health check traffic on port 80; corrected inbound rule.",
+   "ci_classes": [
+    "EC2-i-09447b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-09834c unresponsive",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix.",
+   "ci_classes": [
+    "EC2-i-09834c"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "EC2 instance EC2-i-0992b unresponsive",
+   "resolution": "EBS volume attached to instance hit IOPS throttling; migrated to gp3 volume with higher baseline IOPS.",
+   "ci_classes": [
+    "EC2-i-0992b"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "Huawei Cloud ECS HW-ECS network unreachable",
+   "resolution": "Confirmed Huawei Cloud regional network advisory; connectivity restored once the provider resolved the issue.",
+   "ci_classes": [
+    "HW-ECS"
+   ],
+   "groups": [
+    "Cloud Infrastructure - Huawei"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "IAM role IAM-role permission error on deployment",
+   "resolution": "A broad IAM policy cleanup removed permissions still in use by several services; reverted the policy change.",
+   "ci_classes": [
+    "IAM-role"
+   ],
+   "groups": [
+    "Security Operations"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "Internal application slow / erroring on App-Server",
+   "resolution": "Downstream symptom of the RDS-db failover; connections recovered automatically once failover completed.",
+   "ci_classes": [
+    "App-Server"
+   ],
+   "groups": [
+    "Application Support"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "Internal application slow / erroring on App-Server",
+   "resolution": "Downstream symptom of the same bad deployment as the K8s-node and Pipeline tickets; resolved after rollback.",
+   "ci_classes": [
+    "App-Server"
+   ],
+   "groups": [
+    "Application Support"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "Kubernetes pod crashloop on K8s-node",
+   "resolution": "Bad config introduced in the release deployed via Pipeline; rolled back deployment and pods stabilized.",
+   "ci_classes": [
+    "K8s-node"
+   ],
+   "groups": [
+    "DevOps / CI-CD"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "Printer not responding (same floor)",
+   "resolution": "Same failing floor switch as the related Wi-Fi and file share tickets; resolved after switch replacement.",
+   "ci_classes": [
+    "Printer"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "4 - Low",
+   "n": 1
+  },
+  {
+   "symptom": "RDS instance RDS-db high CPU / slow queries",
+   "resolution": "Primary instance failed a storage-layer health check, triggering automatic failover; new primary stable, root cause under AWS review.",
+   "ci_classes": [
+    "RDS-db"
+   ],
+   "groups": [
+    "Database Administration"
+   ],
+   "priority": "1 - Critical",
+   "n": 1
+  },
+  {
+   "symptom": "RDS instance RDS-db high CPU / slow queries",
+   "resolution": "A long-running batch job was locking rows during business hours; rescheduled job to off-peak window.",
+   "ci_classes": [
+    "RDS-db"
+   ],
+   "groups": [
+    "Database Administration"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "S3 bucket S3-bucket access denied errors",
+   "resolution": "Same IAM policy cleanup that caused the IAM-role incident; access restored after the policy change was reverted.",
+   "ci_classes": [
+    "S3-bucket"
+   ],
+   "groups": [
+    "Cloud Infrastructure - AWS"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  },
+  {
+   "symptom": "Shared drive access issue (same floor)",
+   "resolution": "Downstream effect of the failing floor switch also causing the Wi-Fi outage; resolved once switch was replaced.",
+   "ci_classes": [
+    "FileShare"
+   ],
+   "groups": [
+    "Service Desk L1"
+   ],
+   "priority": "3 - Moderate",
+   "n": 1
+  },
+  {
+   "symptom": "Wi-Fi connectivity issues (single floor)",
+   "resolution": "Core switch on the floor had a failing uplink port; replaced switch and connectivity restored floor-wide.",
+   "ci_classes": [
+    "WiFi-AP"
+   ],
+   "groups": [
+    "Network Operations"
+   ],
+   "priority": "2 - High",
+   "n": 1
+  }
+ ],
+ "runbook_candidates": [
+  {
+   "tickets": 36,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "VoIP-PBX",
+   "owning_team": "Network Operations",
+   "resolution": "PBX service had crashed following a scheduled update; restarted service and verified call routing restored."
+  },
+  {
+   "tickets": 33,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "Printer",
+   "owning_team": "Service Desk L1",
+   "resolution": "Print spooler service on the shared print server had hung; restarted spooler service and cleared stuck jobs."
+  },
+  {
+   "tickets": 25,
+   "tier": "R1",
+   "rationale": "removes only regenerable data (cache, temp, rotated logs)",
+   "ci_class": "Laptop-Asset",
+   "owning_team": "Service Desk L1",
+   "resolution": "Disk was nearly full, causing excessive paging; cleared temp files and freed up space."
+  },
+  {
+   "tickets": 25,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "User-Mailbox",
+   "owning_team": "Identity & Access Management",
+   "resolution": "Password had expired per policy; guided user through self-service reset and re-synced mail client."
+  },
+  {
+   "tickets": 23,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "Backup-job",
+   "owning_team": "Linux Server Team",
+   "resolution": "Backup agent lost connectivity mid-job due to a transient network blip; job re-ran successfully on retry."
+  },
+  {
+   "tickets": 22,
+   "tier": "R1",
+   "rationale": "removes only regenerable data (cache, temp, rotated logs)",
+   "ci_class": "Laptop-Asset",
+   "owning_team": "Service Desk L1",
+   "resolution": "A misbehaving browser extension was consuming excessive memory; removed extension and cleared cache."
+  },
+  {
+   "tickets": 22,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "FileShare",
+   "owning_team": "Windows Server Team",
+   "resolution": "File server had run out of available connections under peak load; increased connection limit and restarted service."
+  },
+  {
+   "tickets": 22,
+   "tier": "R1",
+   "rationale": "reversible — the account can be locked again",
+   "ci_class": "User-Mailbox",
+   "owning_team": "Service Desk L1",
+   "resolution": "Account had been locked out after multiple failed sign-in attempts from a stale mobile device; unlocked account and removed old device."
+  },
+  {
+   "tickets": 22,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "EC2-i-01304c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix."
+  },
+  {
+   "tickets": 21,
+   "tier": "R1",
+   "rationale": "removes only regenerable data (cache, temp, rotated logs)",
+   "ci_class": "AzureVM",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "resolution": "Windows Update cache had grown unusually large; ran disk cleanup and cleared component store using DISM."
+  },
+  {
+   "tickets": 21,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "App-Server",
+   "owning_team": "Application Support",
+   "resolution": "Application server's thread pool was exhausted under load; increased pool size and restarted application service."
+  },
+  {
+   "tickets": 19,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "Backup-job",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "resolution": "Backup destination storage had reached its quota; freed space by expiring old backup generations and re-ran job successfully."
+  },
+  {
+   "tickets": 19,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "VPN-tunnel",
+   "owning_team": "Network Operations",
+   "resolution": "On-prem firewall rebooted for a scheduled patch without prior notice; tunnel re-established manually after reboot completed."
+  },
+  {
+   "tickets": 2,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "Backup-job",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "resolution": "Backup failure attributed to the same us-east-1 network event impacting the source instance; job re-ran successfully once region stabilized."
+  },
+  {
+   "tickets": 1,
+   "tier": "R1",
+   "rationale": "self-reversing — the service returns to the same state",
+   "ci_class": "Backup-job",
+   "owning_team": "Cloud Infrastructure - Huawei",
+   "resolution": "Same Huawei Cloud regional network advisory affecting HW-ECS; backup re-ran successfully after region stabilized."
+  },
+  {
+   "tickets": 41,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Workstation",
+   "owning_team": "Application Support",
+   "resolution": "Confirmed available license seat, installed software remotely, and verified activation with the user."
+  },
+  {
+   "tickets": 35,
+   "tier": "R2",
+   "rationale": "a password reset cannot be undone — the old secret is gone",
+   "ci_class": "AD-Account",
+   "owning_team": "Service Desk L1",
+   "resolution": "Verified user identity per policy, reset password, and unlocked account. User confirmed successful login."
+  },
+  {
+   "tickets": 34,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "License-Server",
+   "owning_team": "Application Support",
+   "resolution": "License renewal had not been processed before expiry due to a billing delay; renewed license and restarted license server."
+  },
+  {
+   "tickets": 34,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Cert",
+   "owning_team": "Network Operations",
+   "resolution": "Certificate renewed and rotated; also added expiry monitoring alert 30 days out to prevent recurrence."
+  },
+  {
+   "tickets": 29,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "License-Server",
+   "owning_team": "Application Support",
+   "resolution": "License server's activation file was corrupted after a server migration; re-applied activation file from vendor."
+  },
+  {
+   "tickets": 27,
+   "tier": "R2",
+   "rationale": "a password reset cannot be undone — the old secret is gone",
+   "ci_class": "AD-Account",
+   "owning_team": "Identity & Access Management",
+   "resolution": "Account lockout was caused by an old cached credential on a mobile device; cleared cached credentials and reset password."
+  },
+  {
+   "tickets": 27,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Cert",
+   "owning_team": "Security Operations",
+   "resolution": "Automated renewal via ACME had silently failed due to a DNS validation record issue; corrected DNS record and renewal completed."
+  },
+  {
+   "tickets": 25,
+   "tier": "R2",
+   "rationale": "changes capacity, and costs money until it is changed back",
+   "ci_class": "AzureVM",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "resolution": "Resized OS disk to next tier and extended the volume within the OS to provide additional headroom."
+  },
+  {
+   "tickets": 24,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "AzureVM",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "resolution": "Cleared accumulated IIS/application log files older than 30 days and configured log rotation to prevent recurrence."
+  },
+  {
+   "tickets": 24,
+   "tier": "R2",
+   "rationale": "visible version change; reversible but people will notice",
+   "ci_class": "K8s-node",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "resolution": "New deployment referenced a ConfigMap key that no longer existed after a config refactor; corrected reference and redeployed."
+  },
+  {
+   "tickets": 21,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Workstation",
+   "owning_team": "Service Desk L1",
+   "resolution": "No license seat was available; procured an additional license and completed installation once approved."
+  },
+  {
+   "tickets": 18,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Pipeline",
+   "owning_team": "DevOps / CI-CD",
+   "resolution": "Pipeline was failing due to an expired deployment credential stored in the CI secrets manager; rotated credential and re-ran pipeline."
+  },
+  {
+   "tickets": 17,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Cert",
+   "owning_team": "Security Operations",
+   "resolution": "Renewed certificate through the internal CA and deployed to all affected endpoints ahead of expiry."
+  },
+  {
+   "tickets": 16,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "AzureAD-tenant",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "resolution": "Users were affected by an expired federation certificate between Azure AD and on-prem ADFS; certificate renewed and trust re-established."
+  },
+  {
+   "tickets": 16,
+   "tier": "R2",
+   "rationale": "changes capacity, and costs money until it is changed back",
+   "ci_class": "RDS-prod",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "resolution": "Scaled instance class up one tier to handle sustained load; monitoring for recurrence over next billing cycle."
+  },
+  {
+   "tickets": 2,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Pipeline",
+   "owning_team": "DevOps / CI-CD",
+   "resolution": "Traced to the same expired internal CA certificate (Cert); pipeline resumed after cert chain was reissued."
+  },
+  {
+   "tickets": 2,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "App-Server",
+   "owning_team": "Application Support",
+   "resolution": "Same root cause as the Cert expiry ticket; resolved once the certificate chain was reissued and redeployed."
+  },
+  {
+   "tickets": 2,
+   "tier": "R2",
+   "rationale": "spends money or issues a new credential someone must trust",
+   "ci_class": "Cert",
+   "owning_team": "Security Operations",
+   "resolution": "Internal root CA had an unnoticed expiry; reissued intermediate cert chain and redeployed to all dependent services."
+  },
+  {
+   "tickets": 1,
+   "tier": "R2",
+   "rationale": "visible version change; reversible but people will notice",
+   "ci_class": "Pipeline",
+   "owning_team": "DevOps / CI-CD",
+   "resolution": "Same faulty release as the related K8s-node crashloop ticket; rolled back and pipeline re-run clean."
+  },
+  {
+   "tickets": 1,
+   "tier": "R2",
+   "rationale": "visible version change; reversible but people will notice",
+   "ci_class": "App-Server",
+   "owning_team": "Application Support",
+   "resolution": "Downstream symptom of the RDS-db failover; connections recovered automatically once failover completed."
+  },
+  {
+   "tickets": 1,
+   "tier": "R2",
+   "rationale": "visible version change; reversible but people will notice",
+   "ci_class": "App-Server",
+   "owning_team": "Application Support",
+   "resolution": "Downstream symptom of the same bad deployment as the K8s-node and Pipeline tickets; resolved after rollback."
+  },
+  {
+   "tickets": 1,
+   "tier": "R2",
+   "rationale": "visible version change; reversible but people will notice",
+   "ci_class": "K8s-node",
+   "owning_team": "DevOps / CI-CD",
+   "resolution": "Bad config introduced in the release deployed via Pipeline; rolled back deployment and pods stabilized."
+  },
+  {
+   "tickets": 1,
+   "tier": "R2",
+   "rationale": "visible version change; reversible but people will notice",
+   "ci_class": "RDS-db",
+   "owning_team": "Database Administration",
+   "resolution": "Primary instance failed a storage-layer health check, triggering automatic failover; new primary stable, root cause under AWS review."
+  }
+ ],
+ "mapping_rows": [
+  {
+   "ci_class": "VPN-tunnel",
+   "owning_team": "Network Operations",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "Printer",
+   "owning_team": "Service Desk L1",
+   "support_tier": "bronze"
+  },
+  {
+   "ci_class": "Hardware",
+   "owning_team": "Service Desk L1",
+   "support_tier": "bronze"
+  },
+  {
+   "ci_class": "AzureStorage",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "AzureVM",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "WiFi-AP",
+   "owning_team": "Network Operations",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "VoIP-PBX",
+   "owning_team": "Network Operations",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "Pipeline",
+   "owning_team": "DevOps / CI-CD",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "HW-ECS",
+   "owning_team": "Cloud Infrastructure - Huawei",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "License-Server",
+   "owning_team": "Application Support",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-08463b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-01842c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-0992b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-03061a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-01829b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-04057c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-09159a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-07856b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-03728a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-06705a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-0492a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-01304c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-02709b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-04194c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-08737b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-03753a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-0431c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-05417b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-01927a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-09447b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-06488c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-01862c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-08454c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-04367a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-02881b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-08274a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-09320a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-03538a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-02877a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-0851c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-03931a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-0517b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-06081c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-04547a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-06030b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-04938b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-05859b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-01740a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-01733b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-05404c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-03257c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-0180b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-07108b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-03147c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-03918a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-03864b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-05597a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-01055c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-05040b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-07148b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-08753b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-05301b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-04435b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-08946b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-06060c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-05798b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-07498b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-09204c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-01641a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "bronze"
+  },
+  {
+   "ci_class": "EC2-i-05022b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "bronze"
+  },
+  {
+   "ci_class": "EC2-i-04069b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-08083a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "bronze"
+  },
+  {
+   "ci_class": "EC2-i-09834c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "platinum"
+  },
+  {
+   "ci_class": "EC2-i-04157b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-07530b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-04696b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-01411a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  },
+  {
+   "ci_class": "EC2-i-03183b",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-06560a",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold"
+  },
+  {
+   "ci_class": "EC2-i-06047c",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "silver"
+  }
+ ],
+ "mapping_needs_review": [
+  {
+   "ci_class": "S3-bucket",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold",
+   "confidence": 0.5,
+   "also": [
+    "Security Operations"
+   ]
+  },
+  {
+   "ci_class": "Cert",
+   "owning_team": "Security Operations",
+   "support_tier": "gold",
+   "confidence": 0.6,
+   "also": [
+    "Network Operations"
+   ]
+  },
+  {
+   "ci_class": "IAM-role",
+   "owning_team": "DevOps / CI-CD",
+   "support_tier": "silver",
+   "confidence": 0.53,
+   "also": [
+    "Security Operations"
+   ]
+  },
+  {
+   "ci_class": "VPN-Client",
+   "owning_team": "Service Desk L1",
+   "support_tier": "silver",
+   "confidence": 0.51,
+   "also": [
+    "Network Operations"
+   ]
+  },
+  {
+   "ci_class": "Laptop-Asset",
+   "owning_team": "Application Support",
+   "support_tier": "silver",
+   "confidence": 0.52,
+   "also": [
+    "Service Desk L1"
+   ]
+  },
+  {
+   "ci_class": "Backup-job",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "support_tier": "silver",
+   "confidence": 0.36,
+   "also": [
+    "Cloud Infrastructure - AWS",
+    "Linux Server Team"
+   ]
+  },
+  {
+   "ci_class": "App-Server",
+   "owning_team": "Application Support",
+   "support_tier": "silver",
+   "confidence": 0.54,
+   "also": [
+    "Database Administration"
+   ]
+  },
+  {
+   "ci_class": "AzureAD-tenant",
+   "owning_team": "Cloud Infrastructure - Azure",
+   "support_tier": "silver",
+   "confidence": 0.5,
+   "also": [
+    "Identity & Access Management"
+   ]
+  },
+  {
+   "ci_class": "K8s-node",
+   "owning_team": "DevOps / CI-CD",
+   "support_tier": "gold",
+   "confidence": 0.52,
+   "also": [
+    "Cloud Infrastructure - AWS"
+   ]
+  },
+  {
+   "ci_class": "FileShare",
+   "owning_team": "Windows Server Team",
+   "support_tier": "silver",
+   "confidence": 0.42,
+   "also": [
+    "Linux Server Team",
+    "Service Desk L1"
+   ]
+  },
+  {
+   "ci_class": "User-Mailbox",
+   "owning_team": "Identity & Access Management",
+   "support_tier": "bronze",
+   "confidence": 0.59,
+   "also": [
+    "Service Desk L1"
+   ]
+  },
+  {
+   "ci_class": "Workstation",
+   "owning_team": "Service Desk L1",
+   "support_tier": "bronze",
+   "confidence": 0.52,
+   "also": [
+    "Application Support"
+   ]
+  },
+  {
+   "ci_class": "AD-Account",
+   "owning_team": "Identity & Access Management",
+   "support_tier": "bronze",
+   "confidence": 0.5,
+   "also": [
+    "Service Desk L1"
+   ]
+  },
+  {
+   "ci_class": "Onboarding",
+   "owning_team": "Service Desk L1",
+   "support_tier": "silver",
+   "confidence": 0.53,
+   "also": [
+    "Identity & Access Management"
+   ]
+  },
+  {
+   "ci_class": "Fileserver",
+   "owning_team": "Windows Server Team",
+   "support_tier": "silver",
+   "confidence": 0.64,
+   "also": [
+    "Linux Server Team"
+   ]
+  },
+  {
+   "ci_class": "MFA-Device",
+   "owning_team": "Service Desk L1",
+   "support_tier": "silver",
+   "confidence": 0.57,
+   "also": [
+    "Identity & Access Management"
+   ]
+  },
+  {
+   "ci_class": "AzureLB",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold",
+   "confidence": 0.67,
+   "also": [
+    "Network Operations"
+   ]
+  },
+  {
+   "ci_class": "ALB",
+   "owning_team": "Cloud Infrastructure - AWS",
+   "support_tier": "gold",
+   "confidence": 0.57,
+   "also": [
+    "Network Operations"
+   ]
+  },
+  {
+   "ci_class": "RDS-prod",
+   "owning_team": "Database Administration",
+   "support_tier": "gold",
+   "confidence": 0.55,
+   "also": [
+    "Cloud Infrastructure - AWS"
+   ]
+  },
+  {
+   "ci_class": "RDS-db",
+   "owning_team": "Database Administration",
+   "support_tier": "silver",
+   "confidence": 0.59,
+   "also": [
+    "Cloud Infrastructure - AWS"
+   ]
+  }
+ ],
+ "ingest": {
+  "rows_read": 2039,
+  "rows_skipped": 0,
+  "redacted": {}
+ }
+}

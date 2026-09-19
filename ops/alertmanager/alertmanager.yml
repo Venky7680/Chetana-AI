@@ -1,0 +1,44 @@
+# Alertmanager routes every alert to Keep's Prometheus webhook.
+#
+# Keep authenticates the webhook with HTTP basic auth: the username is the
+# literal string `api_key` and the password is the key itself. In NO_AUTH mode
+# Keep accepts any value, which is why the local key below is a plain string —
+# change it the moment this stack runs anywhere but a laptop.
+
+global:
+  resolve_timeout: 2m
+
+route:
+  receiver: keep
+  # Group by the labels Keep correlates on, so it receives coherent batches.
+  group_by: [alertname, service, environment]
+  group_wait: 15s
+  group_interval: 1m
+  repeat_interval: 30m
+
+  routes:
+    # Critical alerts skip the grouping delay — they reach Keep immediately.
+    - matchers:
+        - severity = "critical"
+      receiver: keep
+      group_wait: 5s
+      repeat_interval: 15m
+
+receivers:
+  - name: keep
+    webhook_configs:
+      - url: http://keep-backend:8080/alerts/event/prometheus
+        send_resolved: true
+        max_alerts: 0
+        http_config:
+          basic_auth:
+            username: api_key
+            password: chetana-local-dev-key
+
+inhibit_rules:
+  # If the service is down, do not also page about its latency.
+  - source_matchers:
+      - alertname = "TargetDown"
+    target_matchers:
+      - severity =~ "warning|high"
+    equal: [service, environment]

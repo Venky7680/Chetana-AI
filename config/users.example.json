@@ -1,0 +1,20 @@
+[
+  {
+    "email": "operator@intertecsys.com",
+    "password_hash": "REPLACE — run: cd bff && python -m app.cli hash-password 'your-password'",
+    "role": "operator",
+    "tenants": ["*"]
+  },
+  {
+    "email": "approver@intertecsys.com",
+    "password_hash": "REPLACE",
+    "role": "approver",
+    "tenants": ["*"]
+  },
+  {
+    "email": "client-viewer@example.com",
+    "password_hash": "REPLACE",
+    "role": "viewer",
+    "tenants": ["demo"]
+  }
+]

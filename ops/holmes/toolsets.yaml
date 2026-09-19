@@ -1,0 +1,298 @@
+# Chetana evidence toolset for HolmesGPT.
+#
+# This is the only toolset a Chetana deployment enables. Every tool is a curl
+# back into the Chetana BFF's evidence gateway, which means Holmes holds no
+# credentials for the client estate at all: no kubeconfig, no cloud keys, no
+# Keep API key.
+#
+# The token comes from the incoming HTTP request. When the BFF starts an
+# investigation it calls POST /api/chat with an X-Chetana-Evidence-Token header;
+# Holmes' header propagation exposes that as request_context, and each command
+# below forwards it. The token is scoped to one investigation, one tenant, a
+# fixed tool list and a short expiry.
+#
+# Note the header name: Holmes strips Authorization, Cookie and Set-Cookie from
+# propagation by default, so the token cannot travel as a bearer token.
+#
+# --- Schema notes, learned the hard way -------------------------------------
+# * `parameters` is a DICT keyed by parameter name, not a list. The published
+#   example shows a list; this version rejects it.
+# * `installation_instructions`, not `installation` — the model forbids extras.
+# * `prerequisites` is a LIST of prerequisite objects, not a string.
+# * Every `{{ name }}` in a command is auto-inferred as a REQUIRED parameter
+#   unless declared. That includes `request_context`, so it is declared below
+#   as optional on every tool. Its real value is injected by Holmes from the
+#   incoming request and always overrides whatever the model sends, but without
+#   the declaration the model would be forced to invent one.
+# * Do NOT wrap a templated parameter in your own quotes. Holmes already runs
+#   every parameter through shlex.quote, so `--data-urlencode "q={{ q }}"`
+#   yields q='...' with LITERAL quotes and Prometheus rejects it as a string
+#   expression. `--data-urlencode q={{ q }}` is correct — `q='x y'` is already a
+#   single shell word. The token header is the exception: it comes from the
+#   injected request context, is never sanitized, and keeps its quotes.
+# * Every tool needs `user_description`. Holmes renders a one-liner for each
+#   call, and that render receives ONLY the model's params — not the injected
+#   request context. Without user_description it renders the raw command, so
+#   `request_context.headers` blows up with "'str object' has no attribute
+#   'headers'", and the rendered line would contain the evidence token.
+# * --fail-with-body makes curl exit non-zero on 4xx/5xx while still printing
+#   the body, so the model sees "evidence budget exhausted" rather than an empty
+#   string it might fill in with a guess.
+
+toolsets:
+  chetana:
+    enabled: true
+    description: >-
+      Read-only access to the Chetana AIOps platform for the client estate under
+      investigation: incidents, their correlated alerts, service topology and
+      Prometheus metrics. Every call is allowlisted, tenant-scoped and audited.
+    tags:
+      - core
+    prerequisites:
+      - env:
+          - CHETANA_EVIDENCE_URL
+    installation_instructions: |
+      Set CHETANA_EVIDENCE_URL on the Holmes container, e.g. http://bff:8080.
+      The evidence token is supplied per request by the Chetana BFF; there is
+      nothing else to configure and no estate credentials to mount.
+    llm_instructions: |
+      ### Chetana evidence tools
+
+      These are your only view of the client's estate. You have no shell, no
+      kubectl and no cloud access — if a fact is not obtainable through one of
+      these tools, you do not have it, and you should say so rather than
+      assuming.
+
+      A good investigation usually goes:
+
+      1. `chetana_get_incident` — establish what you are looking at.
+      2. `chetana_get_incident_alerts` — the primary evidence. Note the
+         earliest firing time; that is when the problem started.
+      3. `chetana_get_topology` — work out whether the failing service is the
+         cause or a downstream victim.
+      4. `chetana_prometheus_range_query` — check whether a metric moved BEFORE
+         the start time from step 2. A metric that only degrades afterwards is a
+         symptom, not the cause.
+
+         Read the `data_horizon` block in every range result before you reason
+         about timing. Metric retention is finite, so a long window comes back
+         silently truncated and the oldest sample is often just the edge of
+         storage. If `truncated` is true, or the incident started before
+         `data_from`, you CANNOT say what the metric was doing beforehand — say
+         the data does not reach that far. An unsupported claim about precedence
+         is worse than admitting the gap, because precedence is the whole basis
+         for calling something a root cause.
+      5. `chetana_get_incident_workflow_runs` — check whether automation has
+         already been attempted before you recommend anything.
+
+      Your read budget is limited and every call is recorded. Prefer a few
+      well-chosen queries over broad sweeps, and do not repeat a call whose
+      answer you already have.
+
+    tools:
+      - name: chetana_get_incident
+        description: >-
+          Get one incident: name, summary, severity, status, affected services
+          and start time. Call this first to establish what you are
+          investigating.
+        parameters:
+          incident_id:
+            type: string
+            description: The id of the incident to fetch.
+            required: true
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "Fetch incident {{ incident_id }} from Chetana"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/get_incident" \
+            --data-urlencode incident_id={{ incident_id }} \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"
+
+      - name: chetana_get_incident_alerts
+        description: >-
+          List the alerts correlated into an incident, with labels, severity,
+          source and firing times. This is the primary evidence for what
+          actually happened, and the earliest firing time tells you when the
+          problem began.
+        parameters:
+          incident_id:
+            type: string
+            description: The id of the incident whose alerts to list.
+            required: true
+          limit:
+            type: string
+            description: Maximum number of alerts to return. Defaults to 50.
+            required: false
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "List the alerts correlated into incident {{ incident_id }}"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/get_incident_alerts" \
+            --data-urlencode incident_id={{ incident_id }} \
+            --data-urlencode limit={{ limit }} \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"
+
+      - name: chetana_get_incident_workflow_runs
+        description: >-
+          List automation that has already run against this incident and whether
+          it succeeded. Check this before recommending an action — it may
+          already have been attempted and failed.
+        parameters:
+          incident_id:
+            type: string
+            description: The id of the incident whose workflow runs to list.
+            required: true
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "List workflow runs for incident {{ incident_id }}"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/get_incident_workflow_runs" \
+            --data-urlencode incident_id={{ incident_id }} \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"
+
+      - name: chetana_search_alerts
+        description: >-
+          Search alerts across the estate with a CEL filter, for example
+          service == 'payments-api' or severity == 'critical'. Use it to find
+          related activity outside this incident, or to check whether the same
+          symptom has appeared before.
+        parameters:
+          cel:
+            type: string
+            description: >-
+              CEL filter expression, e.g. service == 'payments-api'.
+            required: true
+          limit:
+            type: string
+            description: Maximum number of alerts to return. Defaults to 50.
+            required: false
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "Search Chetana alerts matching: {{ cel }}"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/search_alerts" \
+            --data-urlencode cel={{ cel }} \
+            --data-urlencode limit={{ limit }} \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"
+
+      - name: chetana_get_topology
+        description: >-
+          Get the service topology — which services exist and which depend on
+          which. Use it to decide whether a failing service is the cause or a
+          victim of something upstream.
+        parameters:
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "Fetch the Chetana service topology"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/get_topology" \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"
+
+      - name: chetana_prometheus_instant_query
+        description: >-
+          Run an instant PromQL query against this client's Prometheus and get
+          the current value, for example
+          rate(http_requests_total{status=~"5.."}[5m]).
+        parameters:
+          query:
+            type: string
+            description: The PromQL expression to evaluate now.
+            required: true
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "PromQL (now): {{ query }}"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/prometheus_instant_query" \
+            --data-urlencode query={{ query }} \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"
+
+      - name: chetana_prometheus_range_query
+        description: >-
+          Run a PromQL query over a window ending now and get the series back.
+          Use this to establish whether a metric moved BEFORE the incident
+          started — that is usually what separates a cause from a symptom. The
+          response includes a data_horizon block showing the window requested
+          versus the window actually returned; check it before reasoning about
+          what happened before a given time, because retention is finite and a
+          long window can come back truncated.
+        parameters:
+          query:
+            type: string
+            description: The PromQL expression to evaluate over the window.
+            required: true
+          minutes:
+            type: string
+            description: How many minutes back to look. Defaults to 60.
+            required: false
+          step:
+            type: string
+            description: Resolution of the series, e.g. 60s. Defaults to 60s.
+            required: false
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "PromQL (last {{ minutes }} min): {{ query }}"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/prometheus_range_query" \
+            --data-urlencode query={{ query }} \
+            --data-urlencode minutes={{ minutes }} \
+            --data-urlencode step={{ step }} \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"
+
+      - name: chetana_search_resolution_precedents
+        description: >-
+          Search past service-desk tickets for symptoms like this one and see
+          how they were resolved. Use it EARLY to get a hypothesis quickly, then
+          confirm or reject it with metrics and topology — a precedent is a
+          lead, never a conclusion. The response carries a source block saying
+          whether the ticket history is real or synthetic; if you rely on a
+          precedent, state that provenance in your finding.
+        parameters:
+          symptom:
+            type: string
+            description: >-
+              What is going wrong, in plain words — "certificate expired",
+              "disk near capacity", "pods crashlooping".
+            required: true
+          ci_class:
+            type: string
+            description: >-
+              Optional component class to weight the search towards, such as
+              AzureVM, Printer, VPN-tunnel or K8s-node.
+            required: false
+          limit:
+            type: string
+            description: Maximum precedents to return. Defaults to 5.
+            required: false
+          request_context:
+            type: string
+            description: Internal. Do not set; supplied by the platform.
+            required: false
+        user_description: "Search past resolutions for: {{ symptom }}"
+        command: |
+          curl -sS --fail-with-body --get \
+            "${CHETANA_EVIDENCE_URL}/api/v1/evidence/search_resolution_precedents" \
+            --data-urlencode symptom={{ symptom }} \
+            --data-urlencode ci_class={{ ci_class }} \
+            --data-urlencode limit={{ limit }} \
+            -H "X-Chetana-Evidence-Token: {{ request_context.headers['X-Chetana-Evidence-Token'] }}"

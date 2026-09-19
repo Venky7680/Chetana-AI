@@ -1,0 +1,39 @@
+# Static half of the HolmesGPT config. The container entrypoint writes
+# `model:` from the MODEL environment variable and then appends this file, so
+# the model has exactly one source of truth (CHETANA_HOLMES_MODEL) while the
+# rest stays reviewable here.
+
+custom_toolsets:
+  - /root/.holmes/toolsets.yaml
+
+# Holmes ships ~42 toolsets and enables a number of them whenever their
+# prerequisites happen to be satisfied. Several of those hand the model direct
+# access to the host, which is precisely what the evidence gateway exists to
+# prevent: the whole security argument is that Holmes reaches the estate ONLY
+# through allowlisted, tenant-scoped, audited reads.
+#
+# So they are switched off explicitly here rather than left to a default.
+# ENABLED_BY_DEFAULT_TOOLSETS was not sufficient — it did not disable these.
+toolsets:
+  chetana:
+    enabled: true
+
+  # Arbitrary shell and kubectl execution. Non-negotiable.
+  bash:
+    enabled: false
+  kubectl-run:
+    enabled: false
+
+  # Outbound web access from inside an investigation.
+  internet:
+    enabled: false
+
+  # Direct cluster reads that would bypass the gateway entirely.
+  kubernetes/core:
+    enabled: false
+  kubernetes/logs:
+    enabled: false
+  kubernetes/kube-prometheus-stack:
+    enabled: false
+  helm/core:
+    enabled: false

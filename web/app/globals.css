@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================================
+   Chetana AI — design tokens
+   ---------------------------------------------------------------------------
+   Values are `<r> <g> <b>` triplets, not hex, so Tailwind's opacity modifiers
+   keep working (see tailwind.config.ts).
+
+   Light is the base. Dark is declared twice on purpose: once behind the OS
+   preference, guarded so an explicit light choice still wins, and once behind
+   the toggle's stamp so the toggle wins in both directions. A colour defined
+   only inside one of those blocks would be undefined in the third state —
+   where the viewer has expressed no preference — which is the classic
+   one-theme's-text-on-the-other-theme's-ground bug.
+
+   The palette was measured, not chosen. Notes on the two that matter:
+
+   * The accent is violet because Intertec's brand red sits ΔE 8.1 from
+     critical-severity red, under the 15 distinguishability floor. Brand red
+     appears in the logo lockup and nowhere else; violet carries interaction.
+   * Severity is a status scale, never a chart palette. Five severity hues
+     cannot pass a separation gate — high and warning measure 8.7 apart — so
+     every severity colour ships with its label and never carries meaning alone.
+   =========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* surfaces */
+  --canvas: 246 247 248;
+  --raised: 255 255 255;
+  --overlay: 238 241 243;
+  --border: 221 227 232;
+  --border-firm: 199 208 216;
+
+  /* ink */
+  --ink: 15 23 42;
+  --ink-2: 71 85 105;
+  --ink-muted: 107 114 128;
+  --ink-faint: 156 163 175;
+
+  /* accent — interaction only, never data */
+  --accent: 124 58 237;
+  --accent-hi: 109 40 217;
+  --accent-ink: 255 255 255;
+
+  /* status */
+  --sev-critical: 220 38 38;
+  --sev-high: 234 88 12;
+  --sev-warning: 161 98 7;
+  --sev-low: 14 116 144;
+  --good: 21 128 61;
+
+  /* chart series — validated categorical, capped at three */
+  --series-1: 42 120 214;
+  --series-2: 235 104 52;
+  --series-3: 27 175 122;
+
+  /* brand mark */
+  --intertec: 255 61 61;
+
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 4px 16px -4px rgb(15 23 42 / 0.12);
+  --shadow-lg: 0 12px 32px -8px rgb(15 23 42 / 0.16);
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --canvas: 10 14 19;
+    --raised: 20 26 32;
+    --overlay: 28 36 44;
+    --border: 39 49 59;
+    --border-firm: 58 71 84;
+    --ink: 241 245 249;
+    --ink-2: 203 213 225;
+    --ink-muted: 156 163 175;
+    --ink-faint: 107 114 128;
+    --accent: 167 139 250;
+    --accent-hi: 196 181 253;
+    --accent-ink: 26 16 48;
+    --sev-critical: 248 113 113;
+    --sev-high: 251 146 60;
+    --sev-warning: 250 204 21;
+    --sev-low: 34 211 238;
+    --good: 74 222 128;
+    --series-1: 57 135 229;
+    --series-2: 217 89 38;
+    --series-3: 25 158 112;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.55);
+    --shadow-lg: 0 20px 48px -12px rgb(0 0 0 / 0.7);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: 10 14 19;
+  --raised: 20 26 32;
+  --overlay: 28 36 44;
+  --border: 39 49 59;
+  --border-firm: 58 71 84;
+  --ink: 241 245 249;
+  --ink-2: 203 213 225;
+  --ink-muted: 156 163 175;
+  --ink-faint: 107 114 128;
+  --accent: 167 139 250;
+  --accent-hi: 196 181 253;
+  --accent-ink: 26 16 48;
+  --sev-critical: 248 113 113;
+  --sev-high: 251 146 60;
+  --sev-warning: 250 204 21;
+  --sev-low: 34 211 238;
+  --good: 74 222 128;
+  --series-1: 57 135 229;
+  --series-2: 217 89 38;
+  --series-3: 25 158 112;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 20px 48px -12px rgb(0 0 0 / 0.7);
+}
+
+html,
+body {
+  @apply bg-surface-canvas text-ink antialiased;
+  font-feature-settings: "ss01" 1, "cv01" 1;
+}
+
+/* A theme change repaints the whole page; without this every border and
+   background animates at once, which reads as a glitch rather than a switch. */
+.theming * {
+  transition: none !important;
+}
+
+@layer components {
+  /* ----------------------------------------------------------- containers */
+  .card {
+    @apply rounded-xl border border-surface-border bg-surface-raised shadow-sm;
+  }
+
+  .card-pad {
+    @apply card p-5;
+  }
+
+  .label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-muted;
+  }
+
+  /* --------------------------------------------------------------- controls */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg border border-surface-firm bg-surface-raised
+      px-3 py-1.5 text-sm font-medium text-ink shadow-sm transition
+      hover:border-ink-faint hover:bg-surface-overlay
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2
+      focus-visible:ring-offset-surface-canvas
+      disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-surface-raised;
+  }
+
+  /* One filled control per view. Everything else recedes, so the eye lands on
+     the action rather than on whichever button was rendered last. */
+  .btn-primary {
+    @apply btn border-accent bg-accent text-accent-ink
+      hover:border-accent-hi hover:bg-accent-hi;
+  }
+
+  .btn-danger {
+    @apply btn border-sev-critical/40 bg-sev-critical/10 text-sev-critical
+      hover:border-sev-critical hover:bg-sev-critical/20;
+  }
+
+  .btn-quiet {
+    @apply btn border-transparent bg-transparent shadow-none text-ink-2
+      hover:border-transparent hover:bg-surface-overlay;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-surface-firm bg-surface-canvas px-3 py-2 text-sm
+      text-ink shadow-sm placeholder:text-ink-faint
+      focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25;
+  }
+
+  /* ------------------------------------------------------------- data grid */
+  .th {
+    @apply px-4 py-2.5 text-left text-[11px] font-semibold uppercase tracking-[0.07em] text-ink-muted;
+  }
+
+  .td {
+    @apply px-4 py-3 align-top text-sm text-ink-2;
+  }
+
+  .row {
+    @apply border-t border-surface-border transition hover:bg-surface-overlay/60;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border border-surface-border bg-surface-overlay
+      px-1.5 py-0.5 text-[11px] font-medium text-ink-2;
+  }
+}
+
+/* Long identifiers must not stretch a table cell past the viewport. */
+.truncate-mono {
+  @apply block max-w-[12rem] truncate font-mono text-xs text-ink-muted;
+}
+
+/* The console is a working tool; scrollbars should read as part of it. */
+* {
+  scrollbar-color: rgb(var(--border-firm)) transparent;
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

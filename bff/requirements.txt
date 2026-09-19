@@ -1,0 +1,17 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+httpx==0.28.1
+pydantic==2.10.4
+pydantic-settings==2.7.0
+PyJWT==2.10.1
+bcrypt==4.2.1
+email-validator==2.2.0
+SQLAlchemy[asyncio]==2.0.36
+aiosqlite==0.20.0
+# Required by the ticket-history upload endpoint. FastAPI raises at app
+# creation — not at request time — when a route declares UploadFile and this is
+# missing, so leaving it out does not degrade one endpoint: the whole service
+# fails to start, and the console reports it only as "Failed to fetch".
+python-multipart==0.0.26
+# For Postgres, add asyncpg==0.30.0 and point CHETANA_DATABASE_URL at
+# postgresql+asyncpg://... — no code changes are needed.

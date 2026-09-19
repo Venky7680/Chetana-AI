@@ -1,0 +1,402 @@
+[
+ {
+  "ci_class": "VPN-tunnel",
+  "owning_team": "Network Operations",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "Printer",
+  "owning_team": "Service Desk L1",
+  "support_tier": "bronze"
+ },
+ {
+  "ci_class": "Hardware",
+  "owning_team": "Service Desk L1",
+  "support_tier": "bronze"
+ },
+ {
+  "ci_class": "AzureStorage",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "AzureVM",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "WiFi-AP",
+  "owning_team": "Network Operations",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "VoIP-PBX",
+  "owning_team": "Network Operations",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "Pipeline",
+  "owning_team": "DevOps / CI-CD",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "HW-ECS",
+  "owning_team": "Cloud Infrastructure - Huawei",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "License-Server",
+  "owning_team": "Application Support",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-08463b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-01842c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-0992b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-03061a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-01829b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-04057c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-09159a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-07856b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-03728a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-06705a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-0492a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-01304c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-02709b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-04194c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-08737b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-03753a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-0431c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-05417b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-01927a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-09447b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-06488c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-01862c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-08454c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-04367a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-02881b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-08274a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-09320a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-03538a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-02877a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-0851c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-03931a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-0517b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-06081c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-04547a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-06030b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-04938b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-05859b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-01740a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-01733b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-05404c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-03257c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-0180b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-07108b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-03147c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-03918a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-03864b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-05597a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-01055c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-05040b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-07148b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-08753b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-05301b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-04435b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-08946b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-06060c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-05798b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-07498b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-09204c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-01641a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "bronze"
+ },
+ {
+  "ci_class": "EC2-i-05022b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "bronze"
+ },
+ {
+  "ci_class": "EC2-i-04069b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-08083a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "bronze"
+ },
+ {
+  "ci_class": "EC2-i-09834c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "platinum"
+ },
+ {
+  "ci_class": "EC2-i-04157b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-07530b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-04696b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-01411a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ },
+ {
+  "ci_class": "EC2-i-03183b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-06560a",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold"
+ },
+ {
+  "ci_class": "EC2-i-06047c",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "silver"
+ }
+]

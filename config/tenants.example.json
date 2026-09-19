@@ -1,0 +1,24 @@
+[
+  {
+    "id": "demo",
+    "name": "Demo Client",
+    "keep_base_url": "http://keep-backend:8080",
+    "keep_api_key": "REPLACE_WITH_KEEP_API_KEY",
+    "max_autonomy_tier": 1,
+    "tags": ["uae", "demo"],
+    "enabled": true,
+    "prometheus_base_url": "http://prometheus:9090",
+    "investigations_enabled": true
+  },
+  {
+    "id": "client-two",
+    "name": "Second Client",
+    "keep_base_url": "https://keep.client-two.example.com",
+    "keep_api_key": "REPLACE_WITH_KEEP_API_KEY",
+    "max_autonomy_tier": 0,
+    "tags": ["ksa"],
+    "enabled": false,
+    "prometheus_base_url": null,
+    "investigations_enabled": false
+  }
+]

@@ -1,0 +1,184 @@
+[
+ {
+  "ci_class": "S3-bucket",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold",
+  "confidence": 0.5,
+  "also": [
+   "Security Operations"
+  ]
+ },
+ {
+  "ci_class": "Cert",
+  "owning_team": "Security Operations",
+  "support_tier": "gold",
+  "confidence": 0.6,
+  "also": [
+   "Network Operations"
+  ]
+ },
+ {
+  "ci_class": "IAM-role",
+  "owning_team": "DevOps / CI-CD",
+  "support_tier": "silver",
+  "confidence": 0.53,
+  "also": [
+   "Security Operations"
+  ]
+ },
+ {
+  "ci_class": "VPN-Client",
+  "owning_team": "Service Desk L1",
+  "support_tier": "silver",
+  "confidence": 0.51,
+  "also": [
+   "Network Operations"
+  ]
+ },
+ {
+  "ci_class": "Laptop-Asset",
+  "owning_team": "Application Support",
+  "support_tier": "silver",
+  "confidence": 0.52,
+  "also": [
+   "Service Desk L1"
+  ]
+ },
+ {
+  "ci_class": "Backup-job",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "support_tier": "silver",
+  "confidence": 0.36,
+  "also": [
+   "Cloud Infrastructure - AWS",
+   "Linux Server Team"
+  ]
+ },
+ {
+  "ci_class": "App-Server",
+  "owning_team": "Application Support",
+  "support_tier": "silver",
+  "confidence": 0.54,
+  "also": [
+   "Database Administration"
+  ]
+ },
+ {
+  "ci_class": "AzureAD-tenant",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "support_tier": "silver",
+  "confidence": 0.5,
+  "also": [
+   "Identity & Access Management"
+  ]
+ },
+ {
+  "ci_class": "K8s-node",
+  "owning_team": "DevOps / CI-CD",
+  "support_tier": "gold",
+  "confidence": 0.52,
+  "also": [
+   "Cloud Infrastructure - AWS"
+  ]
+ },
+ {
+  "ci_class": "FileShare",
+  "owning_team": "Windows Server Team",
+  "support_tier": "silver",
+  "confidence": 0.42,
+  "also": [
+   "Linux Server Team",
+   "Service Desk L1"
+  ]
+ },
+ {
+  "ci_class": "User-Mailbox",
+  "owning_team": "Identity & Access Management",
+  "support_tier": "bronze",
+  "confidence": 0.59,
+  "also": [
+   "Service Desk L1"
+  ]
+ },
+ {
+  "ci_class": "Workstation",
+  "owning_team": "Service Desk L1",
+  "support_tier": "bronze",
+  "confidence": 0.52,
+  "also": [
+   "Application Support"
+  ]
+ },
+ {
+  "ci_class": "AD-Account",
+  "owning_team": "Identity & Access Management",
+  "support_tier": "bronze",
+  "confidence": 0.5,
+  "also": [
+   "Service Desk L1"
+  ]
+ },
+ {
+  "ci_class": "Onboarding",
+  "owning_team": "Service Desk L1",
+  "support_tier": "silver",
+  "confidence": 0.53,
+  "also": [
+   "Identity & Access Management"
+  ]
+ },
+ {
+  "ci_class": "Fileserver",
+  "owning_team": "Windows Server Team",
+  "support_tier": "silver",
+  "confidence": 0.64,
+  "also": [
+   "Linux Server Team"
+  ]
+ },
+ {
+  "ci_class": "MFA-Device",
+  "owning_team": "Service Desk L1",
+  "support_tier": "silver",
+  "confidence": 0.57,
+  "also": [
+   "Identity & Access Management"
+  ]
+ },
+ {
+  "ci_class": "AzureLB",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold",
+  "confidence": 0.67,
+  "also": [
+   "Network Operations"
+  ]
+ },
+ {
+  "ci_class": "ALB",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "support_tier": "gold",
+  "confidence": 0.57,
+  "also": [
+   "Network Operations"
+  ]
+ },
+ {
+  "ci_class": "RDS-prod",
+  "owning_team": "Database Administration",
+  "support_tier": "gold",
+  "confidence": 0.55,
+  "also": [
+   "Cloud Infrastructure - AWS"
+  ]
+ },
+ {
+  "ci_class": "RDS-db",
+  "owning_team": "Database Administration",
+  "support_tier": "silver",
+  "confidence": 0.59,
+  "also": [
+   "Cloud Infrastructure - AWS"
+  ]
+ }
+]

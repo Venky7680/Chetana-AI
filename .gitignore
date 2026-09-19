@@ -1,0 +1,33 @@
+# secrets & local config
+.env
+.env.*
+!.env.example
+config/tenants.json
+config/users.json
+
+# runtime state: databases and the audit trail are per-deployment, never shared
+*.sqlite3
+*.db
+audit.log
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+bff/data/
+state/
+
+# node / next
+node_modules/
+.next/
+out/
+npm-debug.log*
+
+# editors / os
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

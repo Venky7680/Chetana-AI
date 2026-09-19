@@ -1,0 +1,146 @@
+# Alert rules over genuinely observed series. Nothing here is synthetic: every
+# expression reads a counter or histogram that the services actually recorded.
+#
+# The `service`, `environment` and `team` labels come from the scrape config and
+# survive into Keep, where they drive correlation and the console's grouping.
+
+groups:
+  - name: chetana-availability
+    rules:
+      - alert: TargetDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "{{ $labels.service }} is not responding to scrapes"
+          description: >-
+            Prometheus has not been able to scrape {{ $labels.service }} in
+            {{ $labels.environment }} for over a minute. The process is down or
+            unreachable on the network.
+          runbook: RB-001
+
+      - alert: LedgerUnreachable
+        expr: |
+          sum by (service, environment, team) (
+            rate(payments_upstream_errors_total{kind="unreachable"}[2m])
+          ) > 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "payments-api cannot reach ledger-worker"
+          description: >-
+            Upstream calls are failing outright. Payments are being rejected with
+            502 for every caller.
+          runbook: RB-002
+
+  - name: chetana-slo
+    rules:
+      - alert: HighErrorRate
+        expr: |
+          (
+            sum by (service, environment, team) (rate(http_requests_total{status=~"5.."}[2m]))
+            /
+            clamp_min(sum by (service, environment, team) (rate(http_requests_total[2m])), 0.001)
+          ) > 0.05
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "{{ $labels.service }} error rate above 5%"
+          description: >-
+            More than 5% of requests to {{ $labels.service }} are returning 5xx
+            over the last two minutes. Most likely load shedding from a saturated
+            upstream pool.
+          runbook: RB-003
+
+      - alert: HighLatencyP99
+        expr: |
+          histogram_quantile(
+            0.99,
+            sum by (le, service, environment, team) (rate(http_request_duration_seconds_bucket[5m]))
+          ) > 1.5
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "{{ $labels.service }} p99 latency above 1.5s"
+          description: >-
+            The 99th percentile has been above the 1.5s objective for three
+            minutes. Callers are waiting on a contended ledger.
+          runbook: RB-004
+
+      - alert: ElevatedLatencyP95
+        expr: |
+          histogram_quantile(
+            0.95,
+            sum by (le, service, environment, team) (rate(http_request_duration_seconds_bucket[5m]))
+          ) > 0.75
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "{{ $labels.service }} p95 latency above 750ms"
+          description: "Early warning ahead of the p99 objective being missed."
+          runbook: RB-004
+
+  - name: chetana-saturation
+    rules:
+      - alert: UpstreamPoolSaturated
+        expr: |
+          (
+            payments_pool_inflight / clamp_min(payments_pool_size, 1)
+          ) > 0.9
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "payments-api upstream pool over 90% utilised"
+          description: >-
+            The connection pool to ledger-worker is nearly full. Further load
+            will be shed as 503.
+          runbook: RB-005
+
+      - alert: LedgerSlotsSaturated
+        expr: ledger_inflight / clamp_min(ledger_slots, 1) >= 1
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "ledger-worker running at full concurrency"
+          description: >-
+            Every settlement slot is occupied and callers are queueing for one.
+          runbook: RB-006
+
+      - alert: LedgerQueueBacklog
+        expr: ledger_queued > 8
+        for: 2m
+        labels:
+          severity: high
+        annotations:
+          summary: "ledger-worker queue backing up"
+          description: "More than eight callers are waiting for a settlement slot."
+          runbook: RB-006
+
+  - name: chetana-resources
+    rules:
+      - alert: HighMemoryUsage
+        expr: process_resident_memory_bytes > 220e6
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "{{ $labels.service }} resident memory above 220MB"
+          description: "Real RSS as reported by the process itself, not a container estimate."
+          runbook: RB-007
+
+      - alert: FileDescriptorPressure
+        expr: process_open_fds / clamp_min(process_max_fds, 1) > 0.7
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "{{ $labels.service }} using over 70% of its file descriptors"
+          description: "Sockets are not being released as fast as they are opened."
+          runbook: RB-008

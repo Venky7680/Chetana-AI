@@ -1,0 +1,322 @@
+[
+ {
+  "tickets": 36,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "VoIP-PBX",
+  "owning_team": "Network Operations",
+  "resolution": "PBX service had crashed following a scheduled update; restarted service and verified call routing restored."
+ },
+ {
+  "tickets": 33,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "Printer",
+  "owning_team": "Service Desk L1",
+  "resolution": "Print spooler service on the shared print server had hung; restarted spooler service and cleared stuck jobs."
+ },
+ {
+  "tickets": 25,
+  "tier": "R1",
+  "rationale": "removes only regenerable data (cache, temp, rotated logs)",
+  "ci_class": "Laptop-Asset",
+  "owning_team": "Service Desk L1",
+  "resolution": "Disk was nearly full, causing excessive paging; cleared temp files and freed up space."
+ },
+ {
+  "tickets": 25,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "User-Mailbox",
+  "owning_team": "Identity & Access Management",
+  "resolution": "Password had expired per policy; guided user through self-service reset and re-synced mail client."
+ },
+ {
+  "tickets": 23,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "Backup-job",
+  "owning_team": "Linux Server Team",
+  "resolution": "Backup agent lost connectivity mid-job due to a transient network blip; job re-ran successfully on retry."
+ },
+ {
+  "tickets": 22,
+  "tier": "R1",
+  "rationale": "removes only regenerable data (cache, temp, rotated logs)",
+  "ci_class": "Laptop-Asset",
+  "owning_team": "Service Desk L1",
+  "resolution": "A misbehaving browser extension was consuming excessive memory; removed extension and cleared cache."
+ },
+ {
+  "tickets": 22,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "FileShare",
+  "owning_team": "Windows Server Team",
+  "resolution": "File server had run out of available connections under peak load; increased connection limit and restarted service."
+ },
+ {
+  "tickets": 22,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "EC2-i-08463b",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "resolution": "Root cause was an out-of-memory condition from a memory leak in the app process; restarted service and applied memory limit as interim fix."
+ },
+ {
+  "tickets": 22,
+  "tier": "R1",
+  "rationale": "reversible \u2014 the account can be locked again",
+  "ci_class": "User-Mailbox",
+  "owning_team": "Service Desk L1",
+  "resolution": "Account had been locked out after multiple failed sign-in attempts from a stale mobile device; unlocked account and removed old device."
+ },
+ {
+  "tickets": 21,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "App-Server",
+  "owning_team": "Application Support",
+  "resolution": "Application server's thread pool was exhausted under load; increased pool size and restarted application service."
+ },
+ {
+  "tickets": 21,
+  "tier": "R1",
+  "rationale": "removes only regenerable data (cache, temp, rotated logs)",
+  "ci_class": "AzureVM",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "resolution": "Windows Update cache had grown unusually large; ran disk cleanup and cleared component store using DISM."
+ },
+ {
+  "tickets": 19,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "Backup-job",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "resolution": "Backup destination storage had reached its quota; freed space by expiring old backup generations and re-ran job successfully."
+ },
+ {
+  "tickets": 19,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "VPN-tunnel",
+  "owning_team": "Network Operations",
+  "resolution": "On-prem firewall rebooted for a scheduled patch without prior notice; tunnel re-established manually after reboot completed."
+ },
+ {
+  "tickets": 2,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "Backup-job",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "resolution": "Backup failure attributed to the same us-east-1 network event impacting the source instance; job re-ran successfully once region stabilized."
+ },
+ {
+  "tickets": 1,
+  "tier": "R1",
+  "rationale": "self-reversing \u2014 the service returns to the same state",
+  "ci_class": "Backup-job",
+  "owning_team": "Cloud Infrastructure - Huawei",
+  "resolution": "Same Huawei Cloud regional network advisory affecting HW-ECS-9904; backup re-ran successfully after region stabilized."
+ },
+ {
+  "tickets": 41,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Workstation",
+  "owning_team": "Application Support",
+  "resolution": "Confirmed available license seat, installed software remotely, and verified activation with the user."
+ },
+ {
+  "tickets": 35,
+  "tier": "R2",
+  "rationale": "a password reset cannot be undone \u2014 the old secret is gone",
+  "ci_class": "AD-Account",
+  "owning_team": "Service Desk L1",
+  "resolution": "Verified user identity per policy, reset password, and unlocked account. User confirmed successful login."
+ },
+ {
+  "tickets": 34,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "License-Server",
+  "owning_team": "Application Support",
+  "resolution": "License renewal had not been processed before expiry due to a billing delay; renewed license and restarted license server."
+ },
+ {
+  "tickets": 34,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Cert",
+  "owning_team": "Network Operations",
+  "resolution": "Certificate renewed and rotated; also added expiry monitoring alert 30 days out to prevent recurrence."
+ },
+ {
+  "tickets": 29,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "License-Server",
+  "owning_team": "Application Support",
+  "resolution": "License server's activation file was corrupted after a server migration; re-applied activation file from vendor."
+ },
+ {
+  "tickets": 27,
+  "tier": "R2",
+  "rationale": "a password reset cannot be undone \u2014 the old secret is gone",
+  "ci_class": "AD-Account",
+  "owning_team": "Identity & Access Management",
+  "resolution": "Account lockout was caused by an old cached credential on a mobile device; cleared cached credentials and reset password."
+ },
+ {
+  "tickets": 27,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Cert",
+  "owning_team": "Security Operations",
+  "resolution": "Automated renewal via ACME had silently failed due to a DNS validation record issue; corrected DNS record and renewal completed."
+ },
+ {
+  "tickets": 25,
+  "tier": "R2",
+  "rationale": "changes capacity, and costs money until it is changed back",
+  "ci_class": "AzureVM",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "resolution": "Resized OS disk to next tier and extended the volume within the OS to provide additional headroom."
+ },
+ {
+  "tickets": 24,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "AzureVM",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "resolution": "Cleared accumulated IIS/application log files older than 30 days and configured log rotation to prevent recurrence."
+ },
+ {
+  "tickets": 24,
+  "tier": "R2",
+  "rationale": "visible version change; reversible but people will notice",
+  "ci_class": "K8s-node",
+  "owning_team": "Cloud Infrastructure - AWS",
+  "resolution": "New deployment referenced a ConfigMap key that no longer existed after a config refactor; corrected reference and redeployed."
+ },
+ {
+  "tickets": 21,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Workstation",
+  "owning_team": "Service Desk L1",
+  "resolution": "No license seat was available; procured an additional license and completed installation once approved."
+ },
+ {
+  "tickets": 18,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Pipeline",
+  "owning_team": "DevOps / CI-CD",
+  "resolution": "Pipeline was failing due to an expired deployment credential stored in the CI secrets manager; rotated credential and re-ran pipeline."
+ },
+ {
+  "tickets": 17,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Cert",
+  "owning_team": "Security Operations",
+  "resolution": "Renewed certificate through the internal CA and deployed to all affected endpoints ahead of expiry."
+ },
+ {
+  "tickets": 16,
+  "tier": "R2",
+  "rationale": "changes capacity, and costs money until it is changed back",
+  "ci_class": "RDS-prod",
+  "owning_team": "Database Administration",
+  "resolution": "Scaled instance class up one tier to handle sustained load; monitoring for recurrence over next billing cycle."
+ },
+ {
+  "tickets": 16,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "AzureAD-tenant",
+  "owning_team": "Cloud Infrastructure - Azure",
+  "resolution": "Users were affected by an expired federation certificate between Azure AD and on-prem ADFS; certificate renewed and trust re-established."
+ },
+ {
+  "tickets": 2,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Cert",
+  "owning_team": "Security Operations",
+  "resolution": "Internal root CA had an unnoticed expiry; reissued intermediate cert chain and redeployed to all dependent services."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "visible version change; reversible but people will notice",
+  "ci_class": "RDS-db",
+  "owning_team": "Database Administration",
+  "resolution": "Primary instance failed a storage-layer health check, triggering automatic failover; new primary stable, root cause under AWS review."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "visible version change; reversible but people will notice",
+  "ci_class": "App-Server",
+  "owning_team": "Application Support",
+  "resolution": "Downstream symptom of the RDS-db-8364 failover; connections recovered automatically once failover completed."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "App-Server",
+  "owning_team": "Application Support",
+  "resolution": "Same root cause as the Cert-2671 expiry ticket; resolved once the certificate chain was reissued and redeployed."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Pipeline",
+  "owning_team": "DevOps / CI-CD",
+  "resolution": "Traced to the same expired internal CA certificate (Cert-2671); pipeline resumed after cert chain was reissued."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "visible version change; reversible but people will notice",
+  "ci_class": "K8s-node",
+  "owning_team": "DevOps / CI-CD",
+  "resolution": "Bad config introduced in the release deployed via Pipeline-1216; rolled back deployment and pods stabilized."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "visible version change; reversible but people will notice",
+  "ci_class": "Pipeline",
+  "owning_team": "DevOps / CI-CD",
+  "resolution": "Same faulty release as the related K8s-node-1216 crashloop ticket; rolled back and pipeline re-run clean."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "visible version change; reversible but people will notice",
+  "ci_class": "App-Server",
+  "owning_team": "Application Support",
+  "resolution": "Downstream symptom of the same bad deployment as the K8s-node-1216 and Pipeline-1216 tickets; resolved after rollback."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "App-Server",
+  "owning_team": "Application Support",
+  "resolution": "Same root cause as the Cert-4497 expiry ticket; resolved once the certificate chain was reissued and redeployed."
+ },
+ {
+  "tickets": 1,
+  "tier": "R2",
+  "rationale": "spends money or issues a new credential someone must trust",
+  "ci_class": "Pipeline",
+  "owning_team": "DevOps / CI-CD",
+  "resolution": "Traced to the same expired internal CA certificate (Cert-4497); pipeline resumed after cert chain was reissued."
+ }
+]
