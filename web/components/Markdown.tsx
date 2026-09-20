@@ -82,7 +82,7 @@ function CodeBlock({ code }: { code: string }) {
       <button
         onClick={copy}
         aria-label="Copy"
-        className="absolute right-2 top-2 rounded-md border border-surface-border bg-surface-raised p-1.5 text-slate-500 transition hover:text-slate-200"
+        className="absolute right-2 top-2 rounded-lg border border-white/15 bg-white/10 p-1.5 text-ink-muted transition hover:text-white"
       >
         {copied ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
       </button>

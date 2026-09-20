@@ -3,144 +3,313 @@
 @tailwind utilities;
 
 /* ===========================================================================
-   Chetana AI — design tokens
+   Fonts — self-hosted, not linked
    ---------------------------------------------------------------------------
-   Values are `<r> <g> <b>` triplets, not hex, so Tailwind's opacity modifiers
-   keep working (see tailwind.config.ts).
+   Inter is the marketing site's face, and these are the same @fontsource
+   files that site ships, so the two halves of the product are literally set
+   in one font rather than two that resemble each other.
 
-   Light is the base. Dark is declared twice on purpose: once behind the OS
-   preference, guarded so an explicit light choice still wins, and once behind
-   the toggle's stamp so the toggle wins in both directions. A colour defined
-   only inside one of those blocks would be undefined in the third state —
-   where the viewer has expressed no preference — which is the classic
-   one-theme's-text-on-the-other-theme's-ground bug.
+   Self-hosted rather than loaded from Google, for three reasons: a client
+   running the console on a restricted network would otherwise silently get
+   the system fallback and wonder why it looks wrong; it removes a
+   third-party request from every page load in a product whose whole pitch is
+   that it does not leak client data; and it makes the font verifiable at
+   build time instead of at the mercy of a CDN.
 
-   The palette was measured, not chosen. Notes on the two that matter:
+   Only latin and latin-ext ship — 12 files, ~308 KB total, and the browser
+   fetches just the two or three it actually needs for the glyphs on screen.
+   Add a subset here if a client ever needs Arabic or Cyrillic in the UI
+   chrome; alert payloads render in whatever the OS provides regardless.
+   =========================================================================== */
 
-   * The accent is violet because Intertec's brand red sits ΔE 8.1 from
-     critical-severity red, under the 15 distinguishability floor. Brand red
-     appears in the logo lockup and nowhere else; violet carries interaction.
-   * Severity is a status scale, never a chart palette. Five severity hues
-     cannot pass a separation gate — high and warning measure 8.7 apart — so
-     every severity colour ships with its label and never carries meaning alone.
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("/fonts/inter-latin-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("/fonts/inter-latin-ext-400.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("/fonts/inter-latin-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("/fonts/inter-latin-ext-500.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("/fonts/inter-latin-600.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("/fonts/inter-latin-ext-600.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("/fonts/inter-latin-700.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("/fonts/inter-latin-ext-700.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Fingerprints, CEL predicates and CMDB ids. JetBrains Mono because a zero
+   that cannot be mistaken for an O matters when someone is reading an
+   identifier aloud on a bridge call. */
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("/fonts/jetbrains-mono-latin-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("/fonts/jetbrains-mono-latin-ext-400.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("/fonts/jetbrains-mono-latin-500.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("/fonts/jetbrains-mono-latin-ext-500.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ===========================================================================
+   Chetana AI — the console, dressed as the landing page
+   ---------------------------------------------------------------------------
+   This is not a palette borrowed from the marketing site. It is the
+   marketing site's own treatment: its glass, its buttons, its blue.
+   Values below are lifted from the site's tailwind.config.js and index.css
+   rather than re-picked by eye, so the two halves cannot drift apart.
+
+   Dark only, and deliberately so. The site has no light mode, so a light
+   console could never match it. The theme toggle is gone with it.
+
+   Values are `<r> <g> <b>` triplets, not hex, so Tailwind's opacity
+   modifiers keep working (see tailwind.config.ts).
+
+   The one place this departs from the site is its background: the site
+   stands on a photograph of clouds, and the console does not. See "the
+   ground" below for why, and for what replaced it.
    =========================================================================== */
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  /* surfaces */
-  --canvas: 246 247 248;
-  --raised: 255 255 255;
-  --overlay: 238 241 243;
-  --border: 221 227 232;
-  --border-firm: 199 208 216;
+  /* surfaces — `deep` and `surface` from the site, plus a glass step */
+  --canvas: 7 11 31;
+  --raised: 11 19 46;
+  --overlay: 24 34 72;
+  --border: 51 64 100;
+  --border-firm: 78 92 132;
 
-  /* ink */
-  --ink: 15 23 42;
-  --ink-2: 71 85 105;
-  --ink-muted: 107 114 128;
-  --ink-faint: 156 163 175;
+  /* ink — the site's `light`, its nav text, its `muted` and its `slate` */
+  --ink: 247 249 252;
+  --ink-2: 203 213 225;
+  --ink-muted: 148 163 184;
+  --ink-faint: 110 126 150;
 
-  /* accent — interaction only, never data */
-  --accent: 124 58 237;
-  --accent-hi: 109 40 217;
-  --accent-ink: 255 255 255;
+  /* accent — the site's brand blue. Interaction only, never data. */
+  --accent: 96 165 250;
+  --accent-hi: 147 197 253;
+  --accent-ink: 6 20 47;
 
   /* status */
-  --sev-critical: 220 38 38;
-  --sev-high: 234 88 12;
-  --sev-warning: 161 98 7;
-  --sev-low: 14 116 144;
-  --good: 21 128 61;
-
-  /* chart series — validated categorical, capped at three */
-  --series-1: 42 120 214;
-  --series-2: 235 104 52;
-  --series-3: 27 175 122;
-
-  /* brand mark */
-  --intertec: 255 61 61;
-
-  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
-  --shadow-md: 0 4px 16px -4px rgb(15 23 42 / 0.12);
-  --shadow-lg: 0 12px 32px -8px rgb(15 23 42 / 0.16);
-
-  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --canvas: 10 14 19;
-    --raised: 20 26 32;
-    --overlay: 28 36 44;
-    --border: 39 49 59;
-    --border-firm: 58 71 84;
-    --ink: 241 245 249;
-    --ink-2: 203 213 225;
-    --ink-muted: 156 163 175;
-    --ink-faint: 107 114 128;
-    --accent: 167 139 250;
-    --accent-hi: 196 181 253;
-    --accent-ink: 26 16 48;
-    --sev-critical: 248 113 113;
-    --sev-high: 251 146 60;
-    --sev-warning: 250 204 21;
-    --sev-low: 34 211 238;
-    --good: 74 222 128;
-    --series-1: 57 135 229;
-    --series-2: 217 89 38;
-    --series-3: 25 158 112;
-    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
-    --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.55);
-    --shadow-lg: 0 20px 48px -12px rgb(0 0 0 / 0.7);
-  }
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --canvas: 10 14 19;
-  --raised: 20 26 32;
-  --overlay: 28 36 44;
-  --border: 39 49 59;
-  --border-firm: 58 71 84;
-  --ink: 241 245 249;
-  --ink-2: 203 213 225;
-  --ink-muted: 156 163 175;
-  --ink-faint: 107 114 128;
-  --accent: 167 139 250;
-  --accent-hi: 196 181 253;
-  --accent-ink: 26 16 48;
   --sev-critical: 248 113 113;
   --sev-high: 251 146 60;
   --sev-warning: 250 204 21;
   --sev-low: 34 211 238;
   --good: 74 222 128;
-  --series-1: 57 135 229;
-  --series-2: 217 89 38;
-  --series-3: 25 158 112;
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
-  --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.55);
-  --shadow-lg: 0 20px 48px -12px rgb(0 0 0 / 0.7);
+
+  /* chart series — validated categorical, capped at three. Led by the site's
+     brand.violet. Blue is missing on purpose: it is the interaction colour,
+     and a blue bar beside a blue button reads as something you can press. */
+  --series-1: 139 92 246;
+  --series-2: 217 106 18;
+  --series-3: 14 158 110;
+
+  /* brand mark */
+  --intertec: 255 61 61;
+
+  /* glass — the site's own recipe, thickened for data */
+  --glass: 9 17 40;
+  /* Was .72 while a photograph was behind it, which is nearly opaque and
+     barely reads as glass at all. Over a smooth gradient .6 is plenty to
+     carry small text, and the panels actually look translucent. */
+  --glass-alpha: 0.6;
+  --hair: 255 255 255;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
+  --shadow-md: 0 8px 24px -8px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 20px 48px -12px rgb(0 0 0 / 0.75);
+  /* the blue bloom under the site's primary button */
+  --glow-accent: 0 6px 24px rgb(59 130 246 / 0.45);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-html,
+/* The colour goes on <html> alone, and <body> stays transparent.
+   This is load-bearing, not tidiness. body::before paints the sky at
+   z-index -2, and negative-z descendants paint above the root background but
+   below every block-level background that follows. Give <body> a background of
+   its own and it covers the photograph completely — the page renders as flat
+   navy and looks exactly like an image that failed to load. */
+html {
+  @apply bg-surface-canvas;
+  min-height: 100%;
+}
+
 body {
-  @apply bg-surface-canvas text-ink antialiased;
-  font-feature-settings: "ss01" 1, "cv01" 1;
+  @apply text-ink antialiased;
+  background-color: transparent;
+  min-height: 100%;
 }
 
-/* A theme change repaints the whole page; without this every border and
-   background animates at once, which reads as a glitch rather than a switch. */
-.theming * {
-  transition: none !important;
+/* ------------------------------------------------------------- the ground
+   A built background, not a photograph.
+
+   The marketing site stands on a picture of clouds. That is right for a
+   headline and wrong here: a photograph behind two hundred alert rows fights
+   the text for attention, costs 400 KB on every load, and its bright patches
+   land wherever the table happens to be. This keeps the site's world — the
+   same deep navy, the same blue and violet — and builds it out of gradients
+   instead, so it is weightless, never competes with a row, and looks the same
+   on every page.
+
+   Two fixed layers behind everything: the aurora, then a faint grid that
+   fades out before it reaches the dense part of the page.
+
+   The photograph is still in public/ and still used — it is the landing
+   page's background. This only stops the console from borrowing it. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
+  background-color: rgb(var(--canvas));
+  background-image:
+    /* blue, rising from behind the sidebar */
+    radial-gradient(75rem 50rem at 6% -8%, rgb(59 130 246 / 0.22), transparent 62%),
+    /* violet, opposite corner, so the field is not symmetrical */
+    radial-gradient(62rem 44rem at 92% 4%, rgb(139 92 246 / 0.17), transparent 64%),
+    /* a cool floor, keeping the bottom of a long page from going flat */
+    radial-gradient(70rem 40rem at 50% 118%, rgb(34 211 238 / 0.1), transparent 62%);
+}
+
+/* Graph paper, almost subliminal — enough to say "instrument" rather than
+   "document". Masked so it is present behind the header and gone by the time
+   the tables start, where any repeating texture would sit under the type. */
+body::after {
+  z-index: -1;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, black 0%, rgb(0 0 0 / 0.35) 38%, transparent 70%);
+  mask-image: linear-gradient(180deg, black 0%, rgb(0 0 0 / 0.35) 38%, transparent 70%);
+}
+
+/* Figures line up in a column when the digits are all one width. Tables of
+   alert counts and durations are most of this product. */
+.tabular,
+table {
+  font-variant-numeric: tabular-nums;
 }
 
 @layer components {
   /* ----------------------------------------------------------- containers */
+
+  /* The site's glass, at an opacity that can carry a table. backdrop-filter
+     is the expensive part, so it lives on panels and the two chromes only —
+     never on rows, which would mean one blur per alert. */
+  .glass {
+    background-color: rgb(var(--glass) / var(--glass-alpha));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgb(var(--hair) / 0.11);
+  }
+
   .card {
-    @apply rounded-xl border border-surface-border bg-surface-raised shadow-sm;
+    @apply glass rounded-2xl shadow-lg;
   }
 
   .card-pad {
@@ -151,37 +320,71 @@ body {
     @apply text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-muted;
   }
 
-  /* --------------------------------------------------------------- controls */
+  /* --------------------------------------------------------------- controls
+     Pills, like the site's. Its outline variant is the quiet default here,
+     because a console has many more buttons than a landing page does. */
   .btn {
-    @apply inline-flex items-center gap-2 rounded-lg border border-surface-firm bg-surface-raised
-      px-3 py-1.5 text-sm font-medium text-ink shadow-sm transition
-      hover:border-ink-faint hover:bg-surface-overlay
+    @apply inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-1.5
+      text-sm font-semibold text-ink transition
       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2
       focus-visible:ring-offset-surface-canvas
-      disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-surface-raised;
+      disabled:cursor-not-allowed disabled:opacity-40;
+    border-color: rgb(var(--hair) / 0.25);
+    background-color: rgb(var(--hair) / 0.05);
   }
 
-  /* One filled control per view. Everything else recedes, so the eye lands on
-     the action rather than on whichever button was rendered last. */
+  .btn:hover:not(:disabled) {
+    border-color: rgb(var(--hair) / 0.4);
+    background-color: rgb(var(--hair) / 0.1);
+  }
+
+  /* The site's primary: a blue gradient with a bloom under it. One per view,
+     so the eye lands on the action rather than on whichever button rendered
+     last. */
   .btn-primary {
-    @apply btn border-accent bg-accent text-accent-ink
-      hover:border-accent-hi hover:bg-accent-hi;
+    @apply btn border-transparent font-semibold text-white;
+    background-image: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: var(--glow-accent);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-image: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    border-color: transparent;
   }
 
   .btn-danger {
-    @apply btn border-sev-critical/40 bg-sev-critical/10 text-sev-critical
-      hover:border-sev-critical hover:bg-sev-critical/20;
+    @apply btn text-sev-critical;
+    border-color: rgb(var(--sev-critical) / 0.4);
+    background-color: rgb(var(--sev-critical) / 0.12);
+  }
+
+  .btn-danger:hover:not(:disabled) {
+    border-color: rgb(var(--sev-critical) / 0.7);
+    background-color: rgb(var(--sev-critical) / 0.2);
   }
 
   .btn-quiet {
-    @apply btn border-transparent bg-transparent shadow-none text-ink-2
-      hover:border-transparent hover:bg-surface-overlay;
+    @apply btn border-transparent bg-transparent text-ink-2 shadow-none;
+  }
+
+  .btn-quiet:hover:not(:disabled) {
+    border-color: transparent;
+    background-color: rgb(var(--hair) / 0.08);
   }
 
   .input {
-    @apply w-full rounded-lg border border-surface-firm bg-surface-canvas px-3 py-2 text-sm
-      text-ink shadow-sm placeholder:text-ink-faint
+    @apply w-full rounded-xl border px-3 py-2 text-sm text-ink
+      placeholder:text-ink-faint
       focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25;
+    border-color: rgb(var(--hair) / 0.15);
+    background-color: rgb(var(--hair) / 0.06);
+  }
+
+  /* A native dropdown paints its list with the OS palette; without this the
+     options render as black text on white in the middle of a dark console. */
+  select.input option {
+    background-color: rgb(var(--raised));
+    color: rgb(var(--ink));
   }
 
   /* ------------------------------------------------------------- data grid */
@@ -194,12 +397,18 @@ body {
   }
 
   .row {
-    @apply border-t border-surface-border transition hover:bg-surface-overlay/60;
+    @apply transition;
+    border-top: 1px solid rgb(var(--hair) / 0.07);
+  }
+
+  .row:hover {
+    background-color: rgb(var(--hair) / 0.05);
   }
 
   .chip {
-    @apply inline-flex items-center rounded-md border border-surface-border bg-surface-overlay
-      px-1.5 py-0.5 text-[11px] font-medium text-ink-2;
+    @apply inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium text-ink-2;
+    border-color: rgb(var(--hair) / 0.14);
+    background-color: rgb(var(--hair) / 0.06);
   }
 }
 

@@ -24,7 +24,6 @@ import {
   Workflow,
 } from "lucide-react";
 import { SessionProvider, useSession } from "@/lib/session";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Spinner } from "@/components/ui";
 
 // Mirrors Keep's own navigation, section for section, so anyone who knows Keep
@@ -34,7 +33,7 @@ const NAV: { section: string; items: { href: string; label: string; icon: typeof
   {
     section: "Chetana",
     items: [
-      { href: "/", label: "Overview", icon: Activity },
+      { href: "/overview", label: "Overview", icon: Activity },
       { href: "/estate", label: "Operations Overview", icon: Globe2 },
     ],
   },
@@ -128,7 +127,7 @@ function ContextBar() {
   const { tenants } = useSession();
   if (tenants.length < 2) return null;
   return (
-    <div className="flex items-center justify-end gap-3 border-b border-surface-border bg-surface-raised px-7 py-2">
+    <div className="flex items-center justify-end gap-3 border-b border-white/10 bg-white/[0.04] px-7 py-2 backdrop-blur">
       <TenantSwitcher />
     </div>
   );
@@ -148,13 +147,17 @@ function Shell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen">
-      <aside className="sticky top-0 flex h-screen w-60 shrink-0 flex-col border-r border-surface-border bg-surface-raised">
-        {/* The one place Intertec red appears. It is a mark, not a state:
-            it measures DE 8.1 from critical-severity red, so the two must
-            never sit in the same role anywhere else in the product. */}
-        <div className="flex items-center gap-2.5 border-b border-surface-border px-4 py-3">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-intertec">
-            <ShieldCheck className="h-4 w-4 text-white" />
+      {/* Glass rather than a solid panel, so the sky carries behind the rail
+          exactly as it does behind the marketing site's own chrome. */}
+      <aside className="glass sticky top-0 flex h-screen w-60 shrink-0 flex-col rounded-none border-y-0 border-l-0">
+        {/* The marketing site's own mark — a blue ring with a lit core —
+            rather than a second logo invented for the console. It replaced an
+            Intertec-red shield, which is no loss: that red measures ΔE 8.1
+            from critical-severity red, so it could never safely sit near an
+            alert anyway. */}
+        <div className="flex items-center gap-2.5 border-b border-white/10 px-4 py-3.5">
+          <span className="relative block h-[26px] w-[26px] shrink-0 rounded-full border-[3px] border-[#3B82F6] shadow-[0_0_14px_rgba(59,130,246,.75)]">
+            <span className="absolute inset-[5px] rounded-full bg-[#60A5FA]" />
           </span>
           <div className="min-w-0">
             <p className="text-[15px] font-semibold leading-none tracking-[-0.01em] text-ink">
@@ -173,7 +176,9 @@ function Shell({ children }: { children: React.ReactNode }) {
                 {section}
               </p>
               {items.map(({ href, label, icon: Icon }) => {
-                const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+                // No nav href is a prefix of another, so startsWith is safe and
+                // keeps a child route (/incidents/123) lighting up its parent.
+                const active = pathname.startsWith(href);
                 return (
                   <Link
                     key={href}
@@ -181,8 +186,8 @@ function Shell({ children }: { children: React.ReactNode }) {
                     aria-current={active ? "page" : undefined}
                     className={`relative flex items-center gap-2.5 rounded-lg py-1 pl-3 pr-2 text-[13px] transition ${
                       active
-                        ? "bg-accent/10 font-medium text-accent"
-                        : "text-ink-2 hover:bg-surface-overlay hover:text-ink"
+                        ? "bg-white/10 font-semibold text-white"
+                        : "text-ink-2 hover:bg-white/[0.06] hover:text-ink"
                     }`}
                   >
                     {active ? (
@@ -200,7 +205,7 @@ function Shell({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
 
-        <div className="space-y-2.5 border-t border-surface-border px-4 py-3">
+        <div className="space-y-2.5 border-t border-white/10 px-4 py-3">
           <div className="flex items-center justify-between gap-2">
             <div className="min-w-0">
               <p className="truncate text-xs font-medium text-ink-2" title={me?.email}>
@@ -210,7 +215,6 @@ function Shell({ children }: { children: React.ReactNode }) {
                 {me?.role}
               </p>
             </div>
-            <ThemeToggle />
           </div>
           <button className="btn w-full justify-center py-1.5" onClick={signOut}>
             <LogOut className="h-3.5 w-3.5" />

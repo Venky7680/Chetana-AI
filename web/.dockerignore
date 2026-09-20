@@ -1,0 +1,9 @@
+# Keep the build context to source. Without this, `COPY . .` drags the host's
+# node_modules and .next into the image: slow, and — because a stale .next is
+# then sitting there when `npm run build` runs — a plausible way for a rebuild
+# to appear to change nothing at all.
+node_modules
+.next
+npm-debug.log*
+.env*
+.DS_Store

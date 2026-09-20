@@ -48,7 +48,7 @@ export default function ConsoleError({
                 <RotateCcw className="h-3.5 w-3.5" />
                 Try again
               </button>
-              <Link href="/" className="btn">
+              <Link href="/overview" className="btn">
                 Back to overview
               </Link>
             </div>

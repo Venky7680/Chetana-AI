@@ -258,7 +258,10 @@ AWS_BEARER_TOKEN_BEDROCK=...
 AWS_REGION_NAME=us-east-1
 CHETANA_HOLMES_MODEL=bedrock/us.anthropic.claude-sonnet-5
 
-docker compose --profile real up -d --build bff web holmes
+# Bring the whole profile up. Do NOT name services here: naming one starts
+# only it and its dependencies, so keep-backend stays down and every page
+# reports Keep unreachable.
+docker compose --profile real up -d --build
 ```
 
 Add `prometheus_base_url` to a tenant in `config\tenants.json` to give its

@@ -10,7 +10,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from typing import Any, Mapping
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 
 import httpx
 
@@ -33,6 +33,82 @@ class KeepError(Exception):
 class KeepUnavailable(KeepError):
     def __init__(self, message: str) -> None:
         super().__init__(502, message)
+
+
+# Substrings every resolver library uses for "that name does not exist". Kept as
+# a tuple because httpx wraps the OS error and the wording differs by platform:
+# glibc says "Name or service not known", macOS "nodename nor servname provided".
+_DNS_FAILURE_MARKERS = (
+    "name or service not known",
+    "nodename nor servname",
+    "temporary failure in name resolution",
+    "no address associated with hostname",
+    "getaddrinfo failed",
+)
+
+# "Refused" reaches us under several names. httpx tries every address a host
+# resolves to — IPv6 then IPv4, typically — and when they all fail it reports
+# the aggregate, "All connection attempts failed", with the underlying ECONNREFUSED
+# nowhere in the string. Matching only on "connection refused" misses the most
+# common phrasing of the most common failure, which is how the first version of
+# this function fell through to the generic branch on a real outage.
+_REFUSED_MARKERS = (
+    "connection refused",
+    "all connection attempts failed",
+    "connect call failed",
+    "actively refused",  # Windows, WinError 10061
+    "network is unreachable",
+)
+
+
+# A refused connection during startup is not an outage, it is a race. Keep
+# takes a few seconds to bind its port after its container starts, and the BFF
+# has no depends_on ordering it behind that. One refusal used to leave the whole
+# console showing "Keep is not fully reachable" until someone pressed Retry.
+#
+# Only ConnectError is retried, and that is the safety argument: httpx raises it
+# while establishing the socket, before a single byte of the request goes out.
+# Nothing reached Keep, so replaying it cannot duplicate a write. ReadError and
+# RemoteProtocolError are NOT retried — those fire after the request was sent,
+# where a retry could acknowledge an incident twice.
+_CONNECT_RETRIES = 2
+_CONNECT_BACKOFF_SECONDS = 0.75
+
+
+def explain_connect_failure(tenant: TenantConfig, exc: Exception) -> str:
+    """Turn a transport error into something an operator can act on.
+
+    The raw text is accurate and useless: "[Errno -2] Name or service not known"
+    tells someone staring at the console nothing about what to do next. The
+    common causes each have a different fix, and which one applies is knowable
+    from the error, so the message names it.
+    """
+    host = urlsplit(tenant.keep_base_url).hostname or tenant.keep_base_url
+    raw = str(exc).strip() or exc.__class__.__name__
+    lowered = raw.lower()
+
+    if any(marker in lowered for marker in _DNS_FAILURE_MARKERS):
+        return (
+            f"Keep is not running, or is not on this network: the hostname "
+            f"'{host}' could not be resolved. If Keep is a Compose service, "
+            f"bring it up — `docker compose --profile real up -d` with no "
+            f"service name, since naming one service starts only that service "
+            f"and its dependencies. Otherwise correct keep_base_url for tenant "
+            f"'{tenant.id}' in config/tenants.json."
+        )
+
+    if any(marker in lowered for marker in _REFUSED_MARKERS):
+        return (
+            f"Keep's container is running — '{host}' resolves — but nothing is "
+            f"accepting connections on it yet. Keep runs a database migration "
+            f"on first boot and can take a few minutes before it listens, so "
+            f"give it a moment and press Retry. If it persists, "
+            f"`docker compose logs keep-backend --tail 50` will say whether it "
+            f"is still migrating or has crashed, and `docker compose ps` "
+            f"whether it stayed up."
+        )
+
+    return f"Keep unreachable for tenant '{tenant.id}': {raw}"
 
 
 def render_path(operation: Operation, path_params: Mapping[str, Any]) -> str:
@@ -108,19 +184,37 @@ class KeepClient:
             },
         )
 
-        try:
-            response = await self._client.request(
-                operation.method,
-                path,
-                params=params or None,
-                json=json_body,
-                content=raw_body,
-                headers={"content-type": "application/yaml"} if raw_body is not None else None,
-            )
-        except httpx.TimeoutException as exc:
-            raise KeepUnavailable(f"Keep timed out for tenant '{self.tenant.id}'") from exc
-        except httpx.HTTPError as exc:
-            raise KeepUnavailable(f"Keep unreachable for tenant '{self.tenant.id}': {exc}") from exc
+        attempt = 0
+        while True:
+            try:
+                response = await self._client.request(
+                    operation.method,
+                    path,
+                    params=params or None,
+                    json=json_body,
+                    content=raw_body,
+                    headers=(
+                        {"content-type": "application/yaml"} if raw_body is not None else None
+                    ),
+                )
+                break
+            except httpx.TimeoutException as exc:
+                raise KeepUnavailable(f"Keep timed out for tenant '{self.tenant.id}'") from exc
+            except httpx.ConnectError as exc:
+                attempt += 1
+                if attempt > _CONNECT_RETRIES:
+                    raise KeepUnavailable(explain_connect_failure(self.tenant, exc)) from exc
+                logger.info(
+                    "keep connect failed, retrying",
+                    extra={
+                        "tenant": self.tenant.id,
+                        "operation": operation.id,
+                        "attempt": attempt,
+                    },
+                )
+                await asyncio.sleep(_CONNECT_BACKOFF_SECONDS * attempt)
+            except httpx.HTTPError as exc:
+                raise KeepUnavailable(explain_connect_failure(self.tenant, exc)) from exc
 
         if response.status_code >= 400:
             payload: Any

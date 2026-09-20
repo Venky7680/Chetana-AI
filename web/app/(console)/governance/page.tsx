@@ -299,7 +299,7 @@ function EvidenceTools({
 function CorpusCard({ corpus, owned }: { corpus: Corpus | null; owned: boolean }) {
   if (!corpus) {
     return (
-      <div className="rounded-lg border border-surface-border bg-surface-raised px-4 py-3">
+      <div className="glass rounded-xl px-4 py-3">
         <h3 className="text-xs font-semibold text-slate-300">No precedent corpus loaded</h3>
         <p className="mt-1 text-xs text-slate-500">
           The engine reasons only from live evidence. It cannot cite how a symptom was resolved
@@ -315,7 +315,7 @@ function CorpusCard({ corpus, owned }: { corpus: Corpus | null; owned: boolean }
       className={`rounded-lg border px-4 py-3 ${
         synthetic
           ? "border-sev-warning/30 bg-sev-warning/5"
-          : "border-surface-border bg-surface-raised"
+          : "border-white/10 bg-white/[0.05]"
       }`}
     >
       <h3 className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-300">

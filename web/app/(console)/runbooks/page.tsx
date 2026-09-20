@@ -96,7 +96,7 @@ export default function RunbooksPage() {
         ))}
       </section>
 
-      <p className="flex items-start gap-2 rounded-lg border border-surface-border bg-surface-raised px-4 py-3 text-xs text-slate-500">
+      <p className="glass flex items-start gap-2 rounded-xl px-4 py-3 text-xs text-ink-muted">
         <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
         <span>
           The tier is set by how hard the action is to undo, never by how urgent the alert was.

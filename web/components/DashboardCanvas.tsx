@@ -170,14 +170,14 @@ export function DashboardCanvas({
         return (
           <section
             key={widget.i}
-            className={`absolute flex flex-col overflow-hidden rounded-xl border bg-surface-raised ${
+            className={`glass absolute flex flex-col overflow-hidden rounded-2xl ${
               dragging
-                ? "z-20 border-accent shadow-2xl"
-                : "border-surface-border transition-[left,top,width,height] duration-150"
+                ? "z-20 !border-accent shadow-2xl"
+                : "transition-[left,top,width,height] duration-150"
             }`}
             style={box(widget)}
           >
-            <header className="flex items-center gap-1.5 border-b border-surface-border px-3 py-2">
+            <header className="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
               {editing ? (
                 <button
                   aria-label={`Move ${widget.name}. Arrow keys move, shift and arrow keys resize.`}
@@ -208,7 +208,7 @@ export function DashboardCanvas({
                 onPointerDown={(e) => begin("resize", widget, e)}
                 className="absolute bottom-0 right-0 h-4 w-4 cursor-se-resize touch-none"
               >
-                <svg viewBox="0 0 10 10" className="h-full w-full fill-slate-600">
+                <svg viewBox="0 0 10 10" className="h-full w-full fill-white/40">
                   <path d="M9 1v8H1z" opacity="0.5" />
                 </svg>
               </button>

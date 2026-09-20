@@ -7,44 +7,33 @@ export const metadata: Metadata = {
     "Alert, incident and automation console for the Chetana AI platform. Keep is the system of record.",
 };
 
-/**
- * Apply the stored theme before the first paint.
- *
- * Without this the page renders in the OS theme, then corrects itself once
- * React hydrates — a white flash on every navigation for anyone running the
- * console dark on a light desktop. It has to be inline and synchronous in the
- * head: a deferred script runs too late to prevent the flash it exists for.
- *
- * "system" deliberately stamps nothing, so the CSS media query decides. The
- * try/catch matters because localStorage throws outright in a private window,
- * and an exception here would block the page rather than the theme.
- */
-const THEME_SCRIPT = `
-(function () {
-  try {
-    var t = localStorage.getItem("chetana.theme");
-    if (t === "dark" || t === "light") {
-      document.documentElement.setAttribute("data-theme", t);
-    }
-  } catch (e) {}
-})();
-`;
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    // The console is dark only, matching the marketing site, so the theme is
+    // stamped here rather than decided at runtime. That removes the inline
+    // no-flash script this file used to carry: with one theme there is no
+    // stored preference to read and nothing to flash between.
+    <html lang="en" data-theme="dark">
       <head>
-        {/* Linked rather than bundled with next/font: the Docker build would
-            otherwise need to reach Google at build time, and a font is not
-            worth a build that fails on a restricted network. If the request is
-            blocked the stack falls back to the system sans and nothing breaks. */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* The two faces the first paint needs. Everything else about the
+            fonts — the @font-face rules, the subsets — is in globals.css;
+            these preloads exist so the text is not briefly set in the
+            fallback on a cold load. They are same-origin: nothing about this
+            page reaches a third party. */}
         <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..500&display=swap"
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          href="/fonts/inter-latin-400.woff2"
+          crossOrigin="anonymous"
         />
-        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <link
+          rel="preload"
+          as="font"
+          type="font/woff2"
+          href="/fonts/inter-latin-500.woff2"
+          crossOrigin="anonymous"
+        />
       </head>
       <body>{children}</body>
     </html>
